@@ -1,0 +1,7 @@
+hub OsHV1_Transcriptome
+shortLabel OsHV-1 Transcriptome
+longLabel OsHV-1 whole-genome transcriptional profiling across oyster developmental stages
+useOneFile on
+ genomesFile genomes.txt
+ email feixu@example.com
+ descriptionUrl description.html

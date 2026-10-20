@@ -1,0 +1,645 @@
+)
+track oshvDescription
+compositeTrack on
+shortLabel OsHV-1 Description
+longLabel Reference genome annotation and description
+typebedGraph .
+visibility dense
+dragAndDrop subtracks
+
+    track oshvRefSeq
+    parent oshvDescription
+    shortLabel Reference Annotation
+    longLabel NCBI NC_005881.2 Reference Sequence CDS and genomic features
+    type bigBed 4 +
+    bigDataUrl cds_annotation.bb
+    visibility pack
+    color 0,0,0
+    altColor 100,100,100
+
+
+track oshvCoverage
+compositeTrack on
+shortLabel RNA-seq Coverage
+longLabel Whole-genome RNA-seq coverage for each developmental stage
+type bedGraph .
+dragAndDrop subtracks
+centerLabelsDense on
+
+
+    track coverage_E
+    parent oshvCoverage
+    shortLabel E
+    longLabel Sample E - undetected after host screen
+    type bedGraph
+    bigDataUrl coverage_E.bedGraph
+    color 0,128,0
+    altColor 0,128,0
+    viewLimits 0:1
+    maxHeightPixels 8:8:8
+    visibility full
+    autoscale off
+
+
+    track coverage_TC
+    parent oshvCoverage
+    shortLabel TC
+    longLabel Sample TC - undetected after host screen
+    type bedGraph
+    bigDataUrl coverage_TC.bedGraph
+    color 0,128,0
+    altColor 0,128,0
+    viewLimits 0:1
+    maxHeightPixels 8:8:8
+    visibility full
+    autoscale off
+
+
+    track coverage_FC
+    parent oshvCoverage
+    shortLabel FC
+    longLabel Sample FC - localized transcription candidate
+    type bedGraph
+    bigDataUrl coverage_FC.bedGraph
+    color 255,255,0
+    altColor 255,255,0
+    viewLimits 0:1
+    maxHeightPixels 32:32:32
+    visibility full
+    autoscale on
+
+
+    track coverage_EM
+    parent oshvCoverage
+    shortLabel EM
+    longLabel Sample EM - sparse below detection gate
+    type bedGraph
+    bigDataUrl coverage_EM.bedGraph
+    color 144,238,144
+    altColor 144,238,144
+    viewLimits 0:5
+    maxHeightPixels 16:16:16
+    visibility full
+    autoscale off
+
+
+    track coverage_M
+    parent oshvCoverage
+    shortLabel M
+    longLabel Sample M - undetected after host screen
+    type bedGraph
+    bigDataUrl coverage_M.bedGraph
+    color 0,128,0
+    altColor 0,128,0
+    viewLimits 0:1
+    maxHeightPixels 8:8:8
+    visibility full
+    autoscale off
+
+
+    track coverage_B
+    parent oshvCoverage
+    shortLabel B
+    longLabel Sample B - undetected after host screen
+    type bedGraph
+    bigDataUrl coverage_B.bedGraph
+    color 0,128,0
+    altColor 0,128,0
+    viewLimits 0:1
+    maxHeightPixels 8:8:8
+    visibility full
+    autoscale off
+
+
+    track coverage_RM
+    parent oshvCoverage
+    shortLabel RM
+    longLabel Sample RM - undetected after host screen
+    type bedGraph
+    bigDataUrl coverage_RM.bedGraph
+    color 0,128,0
+    altColor 0,128,0
+    viewLimits 0:1
+    maxHeightPixels 8:8:8
+    visibility full
+    autoscale off
+
+
+    track coverage_FS
+    parent oshvCoverage
+    shortLabel FS
+    longLabel Sample FS - sparse below detection gate
+    type bedGraph
+    bigDataUrl coverage_FS.bedGraph
+    color 144,238,144
+    altColor 144,238,144
+    viewLimits 0:5
+    maxHeightPixels 16:16:16
+    visibility full
+    autoscale off
+
+
+    track coverage_EG
+    parent oshvCoverage
+    shortLabel EG
+    longLabel Sample EG - localized transcription candidate
+    type bedGraph
+    bigDataUrl coverage_EG.bedGraph
+    color 255,255,0
+    altColor 255,255,0
+    viewLimits 0:5
+    maxHeightPixels 32:32:32
+    visibility full
+    autoscale on
+
+
+    track coverage_G
+    parent oshvCoverage
+    shortLabel G
+    longLabel Sample G - undetected after host screen
+    type bedGraph
+    bigDataUrl coverage_G.bedGraph
+    color 0,128,0
+    altColor 0,128,0
+    viewLimits 0:1
+    maxHeightPixels 8:8:8
+    visibility full
+    autoscale off
+
+
+    track coverage_T1
+    parent oshvCoverage
+    shortLabel T1
+    longLabel Sample T1 - undetected after host screen
+    type bedGraph
+    bigDataUrl coverage_T1.bedGraph
+    color 0,128,0
+    altColor 0,128,0
+    viewLimits 0:1
+    maxHeightPixels 8:8:8
+    visibility full
+    autoscale off
+
+
+    track coverage_T2
+    parent oshvCoverage
+    shortLabel T2
+    longLabel Sample T2 - undetected after host screen
+    type bedGraph
+    bigDataUrl coverage_T2.bedGraph
+    color 0,128,0
+    altColor 0,128,0
+    viewLimits 0:1
+    maxHeightPixels 8:8:8
+    visibility full
+    autoscale off
+
+
+    track coverage_T3
+    parent oshvCoverage
+    shortLabel T3
+    longLabel Sample T3 - undetected after host screen
+    type bedGraph
+    bigDataUrl coverage_T3.bedGraph
+    color 0,128,0
+    altColor 0,128,0
+    viewLimits 0:1
+    maxHeightPixels 8:8:8
+    visibility full
+    autoscale off
+
+
+    track coverage_T4
+    parent oshvCoverage
+    shortLabel T4
+    longLabel Sample T4 - undetected after host screen
+    type bedGraph
+    bigDataUrl coverage_T4.bedGraph
+    color 0,128,0
+    altColor 0,128,0
+    viewLimits 0:1
+    maxHeightPixels 8:8:8
+    visibility full
+    autoscale off
+
+
+    track coverage_T5
+    parent oshvCoverage
+    shortLabel T5
+    longLabel Sample T5 - sparse below detection gate
+    type bedGraph
+    bigDataUrl coverage_T5.bedGraph
+    color 144,238,144
+    altColor 144,238,144
+    viewLimits 0:5
+    maxHeightPixels 16:16:16
+    visibility full
+    autoscale off
+
+
+    track coverage_ED1
+    parent oshvCoverage
+    shortLabel ED1
+    longLabel Sample ED1 - sparse below detection gate
+    type bedGraph
+    bigDataUrl coverage_ED1.bedGraph
+    color 144,238,144
+    altColor 144,238,144
+    viewLimits 0:5
+    maxHeightPixels 16:16:16
+    visibility full
+    autoscale off
+
+
+    track coverage_ED2
+    parent oshvCoverage
+    shortLabel ED2
+    longLabel Sample ED2 - undetected after host screen
+    type bedGraph
+    bigDataUrl coverage_ED2.bedGraph
+    color 0,128,0
+    altColor 0,128,0
+    viewLimits 0:1
+    maxHeightPixels 8:8:8
+    visibility full
+    autoscale off
+
+
+    track coverage_D1
+    parent oshvCoverage
+    shortLabel D1
+    longLabel Sample D1 - sparse below detection gate
+    type bedGraph
+    bigDataUrl coverage_D1.bedGraph
+    color 144,238,144
+    altColor 144,238,144
+    viewLimits 0:5
+    maxHeightPixels 16:16:16
+    visibility full
+    autoscale off
+
+
+    track coverage_D2
+    parent oshvCoverage
+    shortLabel D2
+    longLabel Sample D2 - sparse below detection gate
+    type bedGraph
+    bigDataUrl coverage_D2.bedGraph
+    color 144,238,144
+    altColor 144,238,144
+    viewLimits 0:5
+    maxHeightPixels 16:16:16
+    visibility full
+    autoscale off
+
+
+    track coverage_D3
+    parent oshvCoverage
+    shortLabel D3
+    longLabel Sample D3 - undetected after host screen
+    type bedGraph
+    bigDataUrl coverage_D3.bedGraph
+    color 0,128,0
+    altColor 0,128,0
+    viewLimits 0:1
+    maxHeightPixels 8:8:8
+    visibility full
+    autoscale off
+
+
+    track coverage_D4
+    parent oshvCoverage
+    shortLabel D4
+    longLabel Sample D4 - sparse below detection gate
+    type bedGraph
+    bigDataUrl coverage_D4.bedGraph
+    color 144,238,144
+    altColor 144,238,144
+    viewLimits 0:5
+    maxHeightPixels 16:16:16
+    visibility full
+    autoscale off
+
+
+    track coverage_D5
+    parent oshvCoverage
+    shortLabel D5
+    longLabel Sample D5 - sparse below detection gate
+    type bedGraph
+    bigDataUrl coverage_D5.bedGraph
+    color 144,238,144
+    altColor 144,238,144
+    viewLimits 0:5
+    maxHeightPixels 16:16:16
+    visibility full
+    autoscale off
+
+
+    track coverage_D6
+    parent oshvCoverage
+    shortLabel D6
+    longLabel Sample D6 - undetected after host screen
+    type bedGraph
+    bigDataUrl coverage_D6.bedGraph
+    color 0,128,0
+    altColor 0,128,0
+    viewLimits 0:1
+    maxHeightPixels 8:8:8
+    visibility full
+    autoscale off
+
+
+    track coverage_D7
+    parent oshvCoverage
+    shortLabel D7
+    longLabel Sample D7 - sparse below detection gate
+    type bedGraph
+    bigDataUrl coverage_D7.bedGraph
+    color 144,238,144
+    altColor 144,238,144
+    viewLimits 0:5
+    maxHeightPixels 16:16:16
+    visibility full
+    autoscale off
+
+
+    track coverage_EU1
+    parent oshvCoverage
+    shortLabel EU1
+    longLabel Sample EU1 - localized transcription candidate
+    type bedGraph
+    bigDataUrl coverage_EU1.bedGraph
+    color 255,255,0
+    altColor 255,255,0
+    viewLimits 0:5
+    maxHeightPixels 32:32:32
+    visibility full
+    autoscale on
+
+
+    track coverage_EU2
+    parent oshvCoverage
+    shortLabel EU2
+    longLabel Sample EU2 - localized transcription candidate
+    type bedGraph
+    bigDataUrl coverage_EU2.bedGraph
+    color 255,255,0
+    altColor 255,255,0
+    viewLimits 0:5
+    maxHeightPixels 32:32:32
+    visibility full
+    autoscale on
+
+
+    track coverage_U1
+    parent oshvCoverage
+    shortLabel U1
+    longLabel Sample U1 - widespread transcription candidate
+    type bedGraph
+    bigDataUrl coverage_U1.bedGraph
+    color 255,0,0
+    altColor 255,0,0
+    viewLimits 0:5
+    maxHeightPixels 64:64:64
+    visibility full
+    autoscale on
+
+
+    track coverage_U2
+    parent oshvCoverage
+    shortLabel U2
+    longLabel Sample U2 - widespread transcription candidate
+    type bedGraph
+    bigDataUrl coverage_U2.bedGraph
+    color 255,0,0
+    altColor 255,0,0
+    viewLimits 0:5
+    maxHeightPixels 64:64:64
+    visibility full
+    autoscale on
+
+
+    track coverage_U3
+    parent oshvCoverage
+    shortLabel U3
+    longLabel Sample U3 - widespread transcription candidate
+    type bedGraph
+    bigDataUrl coverage_U3.bedGraph
+    color 255,0,0
+    altColor 255,0,0
+    viewLimits 0:5
+    maxHeightPixels 64:64:64
+    visibility full
+    autoscale on
+
+
+    track coverage_U4
+    parent oshvCoverage
+    shortLabel U4
+    longLabel Sample U4 - widespread transcription candidate
+    type bedGraph
+    bigDataUrl coverage_U4.bedGraph
+    color 255,0,0
+    altColor 255,0,0
+    viewLimits 0:5
+    maxHeightPixels 64:64:64
+    visibility full
+    autoscale on
+
+
+    track coverage_U5
+    parent oshvCoverage
+    shortLabel U5
+    longLabel Sample U5 - localized transcription candidate
+    type bedGraph
+    bigDataUrl coverage_U5.bedGraph
+    color 255,255,0
+    altColor 255,255,0
+    viewLimits 0:5
+    maxHeightPixels 32:32:32
+    visibility full
+    autoscale on
+
+
+    track coverage_U6
+    parent oshvCoverage
+    shortLabel U6
+    longLabel Sample U6 - localized transcription candidate
+    type bedGraph
+    bigDataUrl coverage_U6.bedGraph
+    color 255,255,0
+    altColor 255,255,0
+    viewLimits 0:5
+    maxHeightPixels 32:32:32
+    visibility full
+    autoscale on
+
+
+    track coverage_LU1
+    parent oshvCoverage
+    shortLabel LU1
+    longLabel Sample LU1 - localized transcription candidate
+    type bedGraph
+    bigDataUrl coverage_LU1.bedGraph
+    color 255,255,0
+    altColor 255,255,0
+    viewLimits 0:5
+    maxHeightPixels 32:32:32
+    visibility full
+    autoscale on
+
+
+    track coverage_LU2
+    parent oshvCoverage
+    shortLabel LU2
+    longLabel Sample LU2 - localized transcription candidate
+    type bedGraph
+    bigDataUrl coverage_LU2.bedGraph
+    color 255,255,0
+    altColor 255,255,0
+    viewLimits 0:5
+    maxHeightPixels 32:32:32
+    visibility full
+    autoscale on
+
+
+    track coverage_P1
+    parent oshvCoverage
+    shortLabel P1
+    longLabel Sample P1 - widespread transcription candidate
+    type bedGraph
+    bigDataUrl coverage_P1.bedGraph
+    color 255,0,0
+    altColor 255,0,0
+    viewLimits 0:5
+    maxHeightPixels 64:64:64
+    visibility full
+    autoscale on
+
+
+    track coverage_P2
+    parent oshvCoverage
+    shortLabel P2
+    longLabel Sample P2 - widespread transcription candidate
+    type bedGraph
+    bigDataUrl coverage_P2.bedGraph
+    color 255,0,0
+    altColor 255,0,0
+    viewLimits 0:5
+    maxHeightPixels 64:64:64
+    visibility full
+    autoscale on
+
+
+    track coverage_S
+    parent oshvCoverage
+    shortLabel S
+    longLabel Sample S - widespread transcription candidate
+    type bedGraph
+    bigDataUrl coverage_S.bedGraph
+    color 255,0,0
+    altColor 255,0,0
+    viewLimits 0:5
+    maxHeightPixels 64:64:64
+    visibility full
+    autoscale on
+
+
+    track coverage_J
+    parent oshvCoverage
+    shortLabel J
+    longLabel Sample J - sparse below detection gate
+    type bedGraph
+    bigDataUrl coverage_J.bedGraph
+    color 144,238,144
+    altColor 144,238,144
+    viewLimits 0:5
+    maxHeightPixels 16:16:16
+    visibility full
+    autoscale off
+
+
+
+track oshvCandidates
+compositeTrack on
+shortLabel Candidate Regions
+longLabel Transcriptionally active regions identified in analysis
+visibility dense
+
+    track persistentRegions
+    parent oshvCandidates
+    shortLabel Persistent (all stages)
+    longLabel Genomic regions detected in ALL samples with detectable viral transcription
+    type bigBed 4 +
+    bigDataUrl persistent_windows.bb
+    color 0,0,0
+    visibility pack
+    priority 10
+
+    track lowActivityRegions
+    parent oshvCandidates
+    shortLabel Low-activity candidates
+    longLabel Regions detected in low viral load samples
+    type bigBed 4 +
+    bigDataUrl low_activity_windows.bb
+    color 255,165,0
+    visibility pack
+    priority 11
+
+    track intergenicRegions
+    parent oshvCandidates
+    shortLabel Intergenic candidates
+    longLabel Potential non-coding transcription regions in intergenic spaces
+    type bigBed 4 +
+    bigDataUrl intergenic_candidates.bb
+    color 128,0,128
+    visibility pack
+    priority 12
+
+
+
+track oshvPrimers
+compositeTrack on
+shortLabel PCR Primer Design
+longLabel Candidate primer targets for PCR enrichment
+visibility dense
+
+    track cdsPrimers
+    parent oshvPrimers
+    shortLabel CDS Primers (priority)
+    longLabel Top 50 priority primer targets in CDS regions
+    type bigBed 4 +
+    bigDataUrl cds_primers_priority.bb
+    color 0,100,0
+    visibility pack
+    priority 20
+    denseStack on
+
+    track intergenicPrimers
+    parent oshvPrimers
+    shortLabel Intergenic Primers
+    longLabel Primer targets in intergenic candidate regions
+    type bigBed 4 +
+    bigDataUrl intergenic_primers.bb
+    color 139,0,139
+    visibility pack
+    priority 21
+
+
+
+track oshvTopGenes
+compositeTrack on
+shortLabel Top Expressed Genes
+longLabel Top 20 highest expressed CDS regions
+visibility dense
+
+    track topGenesTrack
+    parent oshvTopGenes
+    shortLabel Top 20 CDS
+    longLabel Top 20 most highly expressed CDS based on high viral load samples
+    type bigBed 4 +
+    bigDataUrl top_genes.bb
+    color 178,34,34
+    visibility pack
+    priority 30
+

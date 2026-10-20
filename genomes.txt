@@ -1,0 +1,8 @@
+genome NC_005881.2
+trackDb trackDb.txt
+description OsHV-1 Transcriptome Hub
+organism "Ostreid Herpesvirus 1"
+defaultPos chr1:50000-60000
+orderKey 9000
+scientificName "Ostreid herpesvirus 1"
+htmlPath description.html
