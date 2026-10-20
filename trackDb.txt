@@ -638,14 +638,14 @@ priority 38
 html coverage
 
 track oshvPrimers
-superTrack on hide
+superTrack on show
 shortLabel PCR primers
 longLabel Candidate PCR amplicons and forward/reverse oligonucleotide binding sites
 priority 3
 html primers
 
 track amplicons
-parent oshvPrimers off
+parent oshvPrimers on
 shortLabel Amplicons
 longLabel Candidate PCR amplicon intervals
 type bigBed 9
@@ -656,7 +656,7 @@ priority 1
 html primers
 
 track forwardPrimers
-parent oshvPrimers off
+parent oshvPrimers on
 shortLabel Forward primers
 longLabel Primer3 left/forward primer binding sites
 type bigBed 9
@@ -667,7 +667,7 @@ priority 2
 html primers
 
 track reversePrimers
-parent oshvPrimers off
+parent oshvPrimers on
 shortLabel Reverse primers
 longLabel Primer3 right/reverse primer binding sites
 type bigBed 9
