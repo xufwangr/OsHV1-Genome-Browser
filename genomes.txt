@@ -1,9 +1,9 @@
-genome chr1
+genome OsHV1
 trackDb trackDb.txt
-description OsHV-1 Transcriptome Hub
-organism "Ostreid Herpesvirus 1"
+twoBitPath genome.2bit
+organism Ostreid herpesvirus 1
+description OsHV-1 reference genome
+scientificName Ostreid herpesvirus 1
 defaultPos chr1:50000-60000
 orderKey 9000
-scientificName "Ostreid herpesvirus 1"
 htmlPath description.html
-twoBitPath genome.2bit
