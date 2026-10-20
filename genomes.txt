@@ -4,6 +4,6 @@ twoBitPath genome.2bit
 organism Ostreid herpesvirus 1
 description OsHV-1 reference genome
 scientificName Ostreid herpesvirus 1
-defaultPos chr1:50000-60000
+defaultPos chr1:1000-10000
 orderKey 9000
 htmlPath description.html
