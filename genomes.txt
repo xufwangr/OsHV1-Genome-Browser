@@ -1,9 +1,9 @@
-genome chr1
+genome OsHV1_NC_005881_2
 trackDb trackDb.txt
 twoBitPath genome.2bit
 organism Ostreid herpesvirus 1
-description OsHV-1 reference genome
 scientificName Ostreid herpesvirus 1
-defaultPos chr1:1000-10000
+description NC_005881.2 (GCF_000846065.1)
+defaultPos NC_005881.2:1-207439
 orderKey 9000
-htmlPath description.html
+htmlPath hub.html
