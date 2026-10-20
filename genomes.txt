@@ -1,4 +1,4 @@
-genome OsHV1
+genome chr1
 trackDb trackDb.txt
 twoBitPath genome.2bit
 organism Ostreid herpesvirus 1
