@@ -1,0 +1,22 @@
+{
+  "samples": 166,
+  "unique_sample_ids": 166,
+  "batch1": 38,
+  "batch2": 128,
+  "reference": "NC_005881.2",
+  "reference_length_bp": 207439,
+  "window_bp": 200,
+  "window_count": 1038,
+  "terminal_window_length_bp": 39,
+  "valid_sample_window_calls": 172308,
+  "sample_window_matrix_summary_match": true,
+  "presence_bigwigs_validated": 166,
+  "summary_bigwigs_validated": 2,
+  "representative_coverage_bigwigs_validated": 10,
+  "candidate_bigbed_validated": true,
+  "candidate_fasta_coordinate_and_orientation_checks": 9,
+  "two_bit_sequence_names_and_lengths_match": true,
+  "trackdb_unique_tracks_and_urls_valid": true,
+  "hubCheck": "not installed; equivalent local validation performed with pybigtools, trackDb parsing, file resolution, reference and sequence checks",
+  "github_push": "not performed; awaiting user approval"
+}

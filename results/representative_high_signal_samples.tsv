@@ -1,0 +1,11 @@
+sample_order	Batch	Sample_ID	file	positive_windows_200bp	max_depth
+27	Batch1	U1	coverage_027_U1.bw	843	237.0
+28	Batch1	U2	coverage_028_U2.bw	852	7425.0
+29	Batch1	U3	coverage_029_U3.bw	851	2768.0
+36	Batch1	P2	coverage_036_P2.bw	845	380.0
+37	Batch1	S	coverage_037_S.bw	834	228.0
+130	Batch2	VAR12h-d4	coverage_130_VAR12h-d4.bw	768	57.0
+134	Batch2	VAR12h-g4	coverage_134_VAR12h-g4.bw	833	1159.0
+138	Batch2	VAR24h-d4	coverage_138_VAR24h-d4.bw	825	304.0
+143	Batch2	VAR48h-d1	coverage_143_VAR48h-d1.bw	812	172.0
+147	Batch2	VAR48h-g1	coverage_147_VAR48h-g1.bw	741	63.0

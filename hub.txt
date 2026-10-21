@@ -1,6 +1,6 @@
-hub OsHV1_Transcriptome_2026
+hub OsHV1_166_presence
 shortLabel OsHV-1 RNA-seq
-longLabel OsHV-1 transcriptome across ordered oyster developmental samples
+longLabel OsHV-1 200-bp viral read presence across 166 samples
 genomesFile genomes.txt
 email xufei@qdio.ac.cn
 descriptionUrl hub.html

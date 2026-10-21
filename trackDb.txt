@@ -1,14 +1,14 @@
-track oshvAnnotations
+track oshvMain
 superTrack on show
-shortLabel Annotations
-longLabel NCBI coding sequence, repeats and coverage-supported candidate windows
+shortLabel OsHV-1 overview
+longLabel ORF annotation, aggregate presence, candidate regions and representative raw coverage
 priority 1
-html annotations
+html hub.html
 
-track orf
-parent oshvAnnotations on
-shortLabel ORFs
-longLabel 127 NCBI annotated CDS/ORFs
+track oshvOrf
+parent oshvMain
+shortLabel OsHV-1 ORFs
+longLabel 127 NCBI annotated CDS/ORFs, strand from NC_005881.2 annotation
 type bigBed 9
 bigDataUrl orf.bb
 visibility full
@@ -16,663 +16,2529 @@ itemRgb on
 priority 1
 html annotations
 
-track repeats
-parent oshvAnnotations on
-shortLabel Repeats
-longLabel NCBI repeat and structural feature intervals
-type bigBed 9
-bigDataUrl repeats.bb
-visibility dense
-itemRgb on
+track presenceCount
+parent oshvMain
+shortLabel Positive n
+longLabel Number of samples with >=1 qualifying read base per 200-bp window (0-166); not read count
+type bigWig
+bigDataUrl oshv1_presence_count_200bp.bw
+visibility full
+autoScale off
+viewLimits 0:166
+alwaysZero on
+graphTypeDefault bar
 priority 2
-html annotations
+html presence
 
-track candidate
-parent oshvAnnotations on
-shortLabel Candidate bins
-longLabel Coverage-supported candidate 200-bp windows
-type bigBed 9
-bigDataUrl candidate.bb
-visibility dense
-itemRgb on
+track presenceFreq
+parent oshvMain
+shortLabel Positive fraction
+longLabel Positive samples / 166 per 200-bp window; not expression level
+type bigWig
+bigDataUrl oshv1_presence_frequency_200bp.bw
+visibility full
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
 priority 3
-html annotations
+html presence
 
-track lowActivity
-parent oshvAnnotations on
-shortLabel Low activity
-longLabel Windows detected in low virus activity samples
+track candidateRegion
+parent oshvMain
+shortLabel Spatial PCR candidates
+longLabel Exploratory Tier 3 candidate coding regions; mRNA 3-prime ends unverified
 type bigBed 9
-bigDataUrl low_activity.bb
+bigDataUrl spatial_pcr_candidates.bb
 visibility pack
 itemRgb on
 priority 4
-html annotations
+html candidates
 
-track intergenic
-parent oshvAnnotations on
-shortLabel Intergenic
-longLabel Intergenic coverage candidate windows; transcript identity unproven
-type bigBed 9
-bigDataUrl intergenic.bb
-visibility pack
-itemRgb on
-priority 5
-html annotations
-
-track oshvCoverage
+track highSignal
 superTrack on show
-shortLabel RNA depth
-longLabel Host-competitive filtered raw RNA-seq read depth, 38 samples in developmental order
+shortLabel Representative coverage
+longLabel Ten samples selected by MAPQ30 primary records and 200-bp breadth (five per batch); raw-virus alignments, MAPQ>=30/baseQ>=20
 priority 2
-html coverage
+html hub.html
 
-track depth_E
-parent oshvCoverage on
-shortLabel 01 E
-longLabel 01 E raw depth; maximum 0; 10089251 total reads
+track cov_027
+parent highSignal
+shortLabel 027 U1
+longLabel Batch1 U1; raw virus coverage MAPQ>=30/baseQ>=20; max depth 237.0
 type bigWig
-bigDataUrl depth_E.bw
-visibility dense
-autoScale off
-viewLimits 0:100
-alwaysZero on
-maxHeightPixels 100:36:16
-color 34,91,159
-priority 1
-html coverage
-
-track depth_TC
-parent oshvCoverage on
-shortLabel 02 TC
-longLabel 02 TC raw depth; maximum 0; 10195536 total reads
-type bigWig
-bigDataUrl depth_TC.bw
-visibility dense
-autoScale off
-viewLimits 0:100
-alwaysZero on
-maxHeightPixels 100:36:16
-color 34,91,159
-priority 2
-html coverage
-
-track depth_FC
-parent oshvCoverage on
-shortLabel 03 FC
-longLabel 03 FC raw depth; maximum 4; 10350499 total reads
-type bigWig
-bigDataUrl depth_FC.bw
+bigDataUrl coverage_027_U1.bw
 visibility full
 autoScale off
-viewLimits 0:100
-alwaysZero on
-maxHeightPixels 100:36:16
-color 34,91,159
-priority 3
-html coverage
-
-track depth_EM
-parent oshvCoverage on
-shortLabel 04 EM
-longLabel 04 EM raw depth; maximum 1; 27416147 total reads
-type bigWig
-bigDataUrl depth_EM.bw
-visibility full
-autoScale off
-viewLimits 0:100
-alwaysZero on
-maxHeightPixels 100:36:16
-color 34,91,159
-priority 4
-html coverage
-
-track depth_M
-parent oshvCoverage on
-shortLabel 05 M
-longLabel 05 M raw depth; maximum 0; 21794366 total reads
-type bigWig
-bigDataUrl depth_M.bw
-visibility dense
-autoScale off
-viewLimits 0:100
-alwaysZero on
-maxHeightPixels 100:36:16
-color 34,91,159
-priority 5
-html coverage
-
-track depth_B
-parent oshvCoverage on
-shortLabel 06 B
-longLabel 06 B raw depth; maximum 0; 20234516 total reads
-type bigWig
-bigDataUrl depth_B.bw
-visibility dense
-autoScale off
-viewLimits 0:100
-alwaysZero on
-maxHeightPixels 100:36:16
-color 34,91,159
-priority 6
-html coverage
-
-track depth_RM
-parent oshvCoverage on
-shortLabel 07 RM
-longLabel 07 RM raw depth; maximum 0; 21853789 total reads
-type bigWig
-bigDataUrl depth_RM.bw
-visibility dense
-autoScale off
-viewLimits 0:100
-alwaysZero on
-maxHeightPixels 100:36:16
-color 34,91,159
-priority 7
-html coverage
-
-track depth_FS
-parent oshvCoverage on
-shortLabel 08 FS
-longLabel 08 FS raw depth; maximum 1; 20235460 total reads
-type bigWig
-bigDataUrl depth_FS.bw
-visibility full
-autoScale off
-viewLimits 0:100
-alwaysZero on
-maxHeightPixels 100:36:16
-color 34,91,159
-priority 8
-html coverage
-
-track depth_EG
-parent oshvCoverage on
-shortLabel 09 EG
-longLabel 09 EG raw depth; maximum 2; 21114483 total reads
-type bigWig
-bigDataUrl depth_EG.bw
-visibility full
-autoScale off
-viewLimits 0:100
-alwaysZero on
-maxHeightPixels 100:36:16
-color 34,91,159
-priority 9
-html coverage
-
-track depth_G
-parent oshvCoverage on
-shortLabel 10 G
-longLabel 10 G raw depth; maximum 0; 10885562 total reads
-type bigWig
-bigDataUrl depth_G.bw
-visibility dense
-autoScale off
-viewLimits 0:100
-alwaysZero on
-maxHeightPixels 100:36:16
-color 34,91,159
-priority 10
-html coverage
-
-track depth_T1
-parent oshvCoverage on
-shortLabel 11 T1
-longLabel 11 T1 raw depth; maximum 0; 14964872 total reads
-type bigWig
-bigDataUrl depth_T1.bw
-visibility dense
-autoScale off
-viewLimits 0:100
-alwaysZero on
-maxHeightPixels 100:36:16
-color 34,91,159
-priority 11
-html coverage
-
-track depth_T2
-parent oshvCoverage on
-shortLabel 12 T2
-longLabel 12 T2 raw depth; maximum 0; 11966348 total reads
-type bigWig
-bigDataUrl depth_T2.bw
-visibility dense
-autoScale off
-viewLimits 0:100
-alwaysZero on
-maxHeightPixels 100:36:16
-color 34,91,159
-priority 12
-html coverage
-
-track depth_T3
-parent oshvCoverage on
-shortLabel 13 T3
-longLabel 13 T3 raw depth; maximum 0; 11572438 total reads
-type bigWig
-bigDataUrl depth_T3.bw
-visibility dense
-autoScale off
-viewLimits 0:100
-alwaysZero on
-maxHeightPixels 100:36:16
-color 34,91,159
-priority 13
-html coverage
-
-track depth_T4
-parent oshvCoverage on
-shortLabel 14 T4
-longLabel 14 T4 raw depth; maximum 0; 9577796 total reads
-type bigWig
-bigDataUrl depth_T4.bw
-visibility dense
-autoScale off
-viewLimits 0:100
-alwaysZero on
-maxHeightPixels 100:36:16
-color 34,91,159
-priority 14
-html coverage
-
-track depth_T5
-parent oshvCoverage on
-shortLabel 15 T5
-longLabel 15 T5 raw depth; maximum 1; 11092424 total reads
-type bigWig
-bigDataUrl depth_T5.bw
-visibility full
-autoScale off
-viewLimits 0:100
-alwaysZero on
-maxHeightPixels 100:36:16
-color 34,91,159
-priority 15
-html coverage
-
-track depth_ED1
-parent oshvCoverage on
-shortLabel 16 ED1
-longLabel 16 ED1 raw depth; maximum 3; 10596837 total reads
-type bigWig
-bigDataUrl depth_ED1.bw
-visibility full
-autoScale off
-viewLimits 0:100
-alwaysZero on
-maxHeightPixels 100:36:16
-color 34,91,159
-priority 16
-html coverage
-
-track depth_ED2
-parent oshvCoverage on
-shortLabel 17 ED2
-longLabel 17 ED2 raw depth; maximum 0; 11434257 total reads
-type bigWig
-bigDataUrl depth_ED2.bw
-visibility dense
-autoScale off
-viewLimits 0:100
-alwaysZero on
-maxHeightPixels 100:36:16
-color 34,91,159
-priority 17
-html coverage
-
-track depth_D1
-parent oshvCoverage on
-shortLabel 18 D1
-longLabel 18 D1 raw depth; maximum 1; 9918432 total reads
-type bigWig
-bigDataUrl depth_D1.bw
-visibility full
-autoScale off
-viewLimits 0:100
-alwaysZero on
-maxHeightPixels 100:36:16
-color 34,91,159
-priority 18
-html coverage
-
-track depth_D2
-parent oshvCoverage on
-shortLabel 19 D2
-longLabel 19 D2 raw depth; maximum 1; 10758795 total reads
-type bigWig
-bigDataUrl depth_D2.bw
-visibility full
-autoScale off
-viewLimits 0:100
-alwaysZero on
-maxHeightPixels 100:36:16
-color 34,91,159
-priority 19
-html coverage
-
-track depth_D3
-parent oshvCoverage on
-shortLabel 20 D3
-longLabel 20 D3 raw depth; maximum 0; 10463229 total reads
-type bigWig
-bigDataUrl depth_D3.bw
-visibility dense
-autoScale off
-viewLimits 0:100
-alwaysZero on
-maxHeightPixels 100:36:16
-color 34,91,159
-priority 20
-html coverage
-
-track depth_D4
-parent oshvCoverage on
-shortLabel 21 D4
-longLabel 21 D4 raw depth; maximum 1; 10476384 total reads
-type bigWig
-bigDataUrl depth_D4.bw
-visibility full
-autoScale off
-viewLimits 0:100
-alwaysZero on
-maxHeightPixels 100:36:16
-color 34,91,159
-priority 21
-html coverage
-
-track depth_D5
-parent oshvCoverage on
-shortLabel 22 D5
-longLabel 22 D5 raw depth; maximum 1; 10048088 total reads
-type bigWig
-bigDataUrl depth_D5.bw
-visibility full
-autoScale off
-viewLimits 0:100
-alwaysZero on
-maxHeightPixels 100:36:16
-color 34,91,159
-priority 22
-html coverage
-
-track depth_D6
-parent oshvCoverage on
-shortLabel 23 D6
-longLabel 23 D6 raw depth; maximum 0; 23149057 total reads
-type bigWig
-bigDataUrl depth_D6.bw
-visibility dense
-autoScale off
-viewLimits 0:100
-alwaysZero on
-maxHeightPixels 100:36:16
-color 34,91,159
-priority 23
-html coverage
-
-track depth_D7
-parent oshvCoverage on
-shortLabel 24 D7
-longLabel 24 D7 raw depth; maximum 2; 15865092 total reads
-type bigWig
-bigDataUrl depth_D7.bw
-visibility full
-autoScale off
-viewLimits 0:100
-alwaysZero on
-maxHeightPixels 100:36:16
-color 34,91,159
-priority 24
-html coverage
-
-track depth_EU1
-parent oshvCoverage on
-shortLabel 25 EU1
-longLabel 25 EU1 raw depth; maximum 4; 21290794 total reads
-type bigWig
-bigDataUrl depth_EU1.bw
-visibility full
-autoScale off
-viewLimits 0:100
-alwaysZero on
-maxHeightPixels 100:36:16
-color 34,91,159
-priority 25
-html coverage
-
-track depth_EU2
-parent oshvCoverage on
-shortLabel 26 EU2
-longLabel 26 EU2 raw depth; maximum 9; 9950754 total reads
-type bigWig
-bigDataUrl depth_EU2.bw
-visibility full
-autoScale off
-viewLimits 0:100
-alwaysZero on
-maxHeightPixels 100:36:16
-color 34,91,159
-priority 26
-html coverage
-
-track depth_U1
-parent oshvCoverage on
-shortLabel 27 U1
-longLabel 27 U1 raw depth; maximum 237; 22844418 total reads
-type bigWig
-bigDataUrl depth_U1.bw
-visibility full
-autoScale off
-viewLimits 0:100
+viewLimits 0:8000
 alwaysZero on
 maxHeightPixels 100:36:16
 color 34,91,159
 priority 27
-html coverage
+html hub.html
 
-track depth_U2
-parent oshvCoverage on
-shortLabel 28 U2
-longLabel 28 U2 raw depth; maximum 7425; 25010517 total reads
+track cov_028
+parent highSignal
+shortLabel 028 U2
+longLabel Batch1 U2; raw virus coverage MAPQ>=30/baseQ>=20; max depth 7425.0
 type bigWig
-bigDataUrl depth_U2.bw
+bigDataUrl coverage_028_U2.bw
 visibility full
 autoScale off
-viewLimits 0:100
+viewLimits 0:8000
 alwaysZero on
 maxHeightPixels 100:36:16
 color 34,91,159
 priority 28
-html coverage
+html hub.html
 
-track depth_U3
-parent oshvCoverage on
-shortLabel 29 U3
-longLabel 29 U3 raw depth; maximum 2768; 11151948 total reads
+track cov_029
+parent highSignal
+shortLabel 029 U3
+longLabel Batch1 U3; raw virus coverage MAPQ>=30/baseQ>=20; max depth 2768.0
 type bigWig
-bigDataUrl depth_U3.bw
+bigDataUrl coverage_029_U3.bw
 visibility full
 autoScale off
-viewLimits 0:100
+viewLimits 0:8000
 alwaysZero on
 maxHeightPixels 100:36:16
 color 34,91,159
 priority 29
-html coverage
+html hub.html
 
-track depth_U4
-parent oshvCoverage on
-shortLabel 30 U4
-longLabel 30 U4 raw depth; maximum 109; 24907847 total reads
+track cov_036
+parent highSignal
+shortLabel 036 P2
+longLabel Batch1 P2; raw virus coverage MAPQ>=30/baseQ>=20; max depth 380.0
 type bigWig
-bigDataUrl depth_U4.bw
+bigDataUrl coverage_036_P2.bw
 visibility full
 autoScale off
-viewLimits 0:100
-alwaysZero on
-maxHeightPixels 100:36:16
-color 34,91,159
-priority 30
-html coverage
-
-track depth_U5
-parent oshvCoverage on
-shortLabel 31 U5
-longLabel 31 U5 raw depth; maximum 12; 10419447 total reads
-type bigWig
-bigDataUrl depth_U5.bw
-visibility full
-autoScale off
-viewLimits 0:100
-alwaysZero on
-maxHeightPixels 100:36:16
-color 34,91,159
-priority 31
-html coverage
-
-track depth_U6
-parent oshvCoverage on
-shortLabel 32 U6
-longLabel 32 U6 raw depth; maximum 4; 10152228 total reads
-type bigWig
-bigDataUrl depth_U6.bw
-visibility full
-autoScale off
-viewLimits 0:100
-alwaysZero on
-maxHeightPixels 100:36:16
-color 34,91,159
-priority 32
-html coverage
-
-track depth_LU1
-parent oshvCoverage on
-shortLabel 33 LU1
-longLabel 33 LU1 raw depth; maximum 8; 19432835 total reads
-type bigWig
-bigDataUrl depth_LU1.bw
-visibility full
-autoScale off
-viewLimits 0:100
-alwaysZero on
-maxHeightPixels 100:36:16
-color 34,91,159
-priority 33
-html coverage
-
-track depth_LU2
-parent oshvCoverage on
-shortLabel 34 LU2
-longLabel 34 LU2 raw depth; maximum 6; 9874521 total reads
-type bigWig
-bigDataUrl depth_LU2.bw
-visibility full
-autoScale off
-viewLimits 0:100
-alwaysZero on
-maxHeightPixels 100:36:16
-color 34,91,159
-priority 34
-html coverage
-
-track depth_P1
-parent oshvCoverage on
-shortLabel 35 P1
-longLabel 35 P1 raw depth; maximum 121; 10189593 total reads
-type bigWig
-bigDataUrl depth_P1.bw
-visibility full
-autoScale off
-viewLimits 0:100
-alwaysZero on
-maxHeightPixels 100:36:16
-color 34,91,159
-priority 35
-html coverage
-
-track depth_P2
-parent oshvCoverage on
-shortLabel 36 P2
-longLabel 36 P2 raw depth; maximum 380; 15351324 total reads
-type bigWig
-bigDataUrl depth_P2.bw
-visibility full
-autoScale off
-viewLimits 0:100
+viewLimits 0:8000
 alwaysZero on
 maxHeightPixels 100:36:16
 color 34,91,159
 priority 36
-html coverage
+html hub.html
 
-track depth_S
-parent oshvCoverage on
-shortLabel 37 S
-longLabel 37 S raw depth; maximum 228; 14307998 total reads
+track cov_037
+parent highSignal
+shortLabel 037 S
+longLabel Batch1 S; raw virus coverage MAPQ>=30/baseQ>=20; max depth 228.0
 type bigWig
-bigDataUrl depth_S.bw
+bigDataUrl coverage_037_S.bw
 visibility full
 autoScale off
-viewLimits 0:100
+viewLimits 0:8000
 alwaysZero on
 maxHeightPixels 100:36:16
 color 34,91,159
 priority 37
-html coverage
+html hub.html
 
-track depth_J
-parent oshvCoverage on
-shortLabel 38 J
-longLabel 38 J raw depth; maximum 1; 16424041 total reads
+track cov_130
+parent highSignal
+shortLabel 130 VAR12h-d4
+longLabel Batch2 VAR12h-d4; raw virus coverage MAPQ>=30/baseQ>=20; max depth 57.0
 type bigWig
-bigDataUrl depth_J.bw
+bigDataUrl coverage_130_VAR12h-d4.bw
 visibility full
 autoScale off
-viewLimits 0:100
+viewLimits 0:8000
 alwaysZero on
 maxHeightPixels 100:36:16
 color 34,91,159
-priority 38
-html coverage
+priority 130
+html hub.html
 
-track oshvPrimers
-superTrack on show
-shortLabel PCR primers
-longLabel Candidate PCR amplicons and forward/reverse oligonucleotide binding sites
+track cov_134
+parent highSignal
+shortLabel 134 VAR12h-g4
+longLabel Batch2 VAR12h-g4; raw virus coverage MAPQ>=30/baseQ>=20; max depth 1159.0
+type bigWig
+bigDataUrl coverage_134_VAR12h-g4.bw
+visibility full
+autoScale off
+viewLimits 0:8000
+alwaysZero on
+maxHeightPixels 100:36:16
+color 34,91,159
+priority 134
+html hub.html
+
+track cov_138
+parent highSignal
+shortLabel 138 VAR24h-d4
+longLabel Batch2 VAR24h-d4; raw virus coverage MAPQ>=30/baseQ>=20; max depth 304.0
+type bigWig
+bigDataUrl coverage_138_VAR24h-d4.bw
+visibility full
+autoScale off
+viewLimits 0:8000
+alwaysZero on
+maxHeightPixels 100:36:16
+color 34,91,159
+priority 138
+html hub.html
+
+track cov_143
+parent highSignal
+shortLabel 143 VAR48h-d1
+longLabel Batch2 VAR48h-d1; raw virus coverage MAPQ>=30/baseQ>=20; max depth 172.0
+type bigWig
+bigDataUrl coverage_143_VAR48h-d1.bw
+visibility full
+autoScale off
+viewLimits 0:8000
+alwaysZero on
+maxHeightPixels 100:36:16
+color 34,91,159
+priority 143
+html hub.html
+
+track cov_147
+parent highSignal
+shortLabel 147 VAR48h-g1
+longLabel Batch2 VAR48h-g1; raw virus coverage MAPQ>=30/baseQ>=20; max depth 63.0
+type bigWig
+bigDataUrl coverage_147_VAR48h-g1.bw
+visibility full
+autoScale off
+viewLimits 0:8000
+alwaysZero on
+maxHeightPixels 100:36:16
+color 34,91,159
+priority 147
+html hub.html
+
+track binaryPresence
+superTrack on
+shortLabel Individual presence
+longLabel Per-sample 0/1 presence in 200-bp windows, all 166 samples
 priority 3
-html primers
+html presence
 
-track amplicons
-parent oshvPrimers on
-shortLabel Amplicons
-longLabel Candidate PCR amplicon intervals
-type bigBed 9
-bigDataUrl amplicons.bb
-visibility dense
-itemRgb on
+track pres_001
+parent binaryPresence
+shortLabel 001 E
+longLabel Batch1 E binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_001_E.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
 priority 1
-html primers
+html presence
 
-track forwardPrimers
-parent oshvPrimers on
-shortLabel Forward primers
-longLabel Primer3 left/forward primer binding sites
-type bigBed 9
-bigDataUrl forward_primers.bb
-visibility dense
-itemRgb on
+track pres_002
+parent binaryPresence
+shortLabel 002 TC
+longLabel Batch1 TC binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_002_TC.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
 priority 2
-html primers
+html presence
 
-track reversePrimers
-parent oshvPrimers on
-shortLabel Reverse primers
-longLabel Primer3 right/reverse primer binding sites
-type bigBed 9
-bigDataUrl reverse_primers.bb
-visibility dense
-itemRgb on
+track pres_003
+parent binaryPresence
+shortLabel 003 FC
+longLabel Batch1 FC binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_003_FC.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
 priority 3
-html primers
+html presence
+
+track pres_004
+parent binaryPresence
+shortLabel 004 EM
+longLabel Batch1 EM binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_004_EM.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 4
+html presence
+
+track pres_005
+parent binaryPresence
+shortLabel 005 M
+longLabel Batch1 M binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_005_M.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 5
+html presence
+
+track pres_006
+parent binaryPresence
+shortLabel 006 B
+longLabel Batch1 B binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_006_B.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 6
+html presence
+
+track pres_007
+parent binaryPresence
+shortLabel 007 RM
+longLabel Batch1 RM binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_007_RM.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 7
+html presence
+
+track pres_008
+parent binaryPresence
+shortLabel 008 FS
+longLabel Batch1 FS binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_008_FS.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 8
+html presence
+
+track pres_009
+parent binaryPresence
+shortLabel 009 EG
+longLabel Batch1 EG binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_009_EG.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 9
+html presence
+
+track pres_010
+parent binaryPresence
+shortLabel 010 G
+longLabel Batch1 G binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_010_G.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 10
+html presence
+
+track pres_011
+parent binaryPresence
+shortLabel 011 T1
+longLabel Batch1 T1 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_011_T1.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 11
+html presence
+
+track pres_012
+parent binaryPresence
+shortLabel 012 T2
+longLabel Batch1 T2 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_012_T2.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 12
+html presence
+
+track pres_013
+parent binaryPresence
+shortLabel 013 T3
+longLabel Batch1 T3 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_013_T3.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 13
+html presence
+
+track pres_014
+parent binaryPresence
+shortLabel 014 T4
+longLabel Batch1 T4 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_014_T4.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 14
+html presence
+
+track pres_015
+parent binaryPresence
+shortLabel 015 T5
+longLabel Batch1 T5 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_015_T5.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 15
+html presence
+
+track pres_016
+parent binaryPresence
+shortLabel 016 ED1
+longLabel Batch1 ED1 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_016_ED1.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 16
+html presence
+
+track pres_017
+parent binaryPresence
+shortLabel 017 ED2
+longLabel Batch1 ED2 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_017_ED2.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 17
+html presence
+
+track pres_018
+parent binaryPresence
+shortLabel 018 D1
+longLabel Batch1 D1 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_018_D1.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 18
+html presence
+
+track pres_019
+parent binaryPresence
+shortLabel 019 D2
+longLabel Batch1 D2 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_019_D2.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 19
+html presence
+
+track pres_020
+parent binaryPresence
+shortLabel 020 D3
+longLabel Batch1 D3 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_020_D3.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 20
+html presence
+
+track pres_021
+parent binaryPresence
+shortLabel 021 D4
+longLabel Batch1 D4 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_021_D4.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 21
+html presence
+
+track pres_022
+parent binaryPresence
+shortLabel 022 D5
+longLabel Batch1 D5 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_022_D5.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 22
+html presence
+
+track pres_023
+parent binaryPresence
+shortLabel 023 D6
+longLabel Batch1 D6 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_023_D6.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 23
+html presence
+
+track pres_024
+parent binaryPresence
+shortLabel 024 D7
+longLabel Batch1 D7 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_024_D7.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 24
+html presence
+
+track pres_025
+parent binaryPresence
+shortLabel 025 EU1
+longLabel Batch1 EU1 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_025_EU1.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 25
+html presence
+
+track pres_026
+parent binaryPresence
+shortLabel 026 EU2
+longLabel Batch1 EU2 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_026_EU2.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 26
+html presence
+
+track pres_027
+parent binaryPresence
+shortLabel 027 U1
+longLabel Batch1 U1 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_027_U1.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 27
+html presence
+
+track pres_028
+parent binaryPresence
+shortLabel 028 U2
+longLabel Batch1 U2 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_028_U2.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 28
+html presence
+
+track pres_029
+parent binaryPresence
+shortLabel 029 U3
+longLabel Batch1 U3 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_029_U3.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 29
+html presence
+
+track pres_030
+parent binaryPresence
+shortLabel 030 U4
+longLabel Batch1 U4 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_030_U4.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 30
+html presence
+
+track pres_031
+parent binaryPresence
+shortLabel 031 U5
+longLabel Batch1 U5 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_031_U5.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 31
+html presence
+
+track pres_032
+parent binaryPresence
+shortLabel 032 U6
+longLabel Batch1 U6 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_032_U6.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 32
+html presence
+
+track pres_033
+parent binaryPresence
+shortLabel 033 LU1
+longLabel Batch1 LU1 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_033_LU1.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 33
+html presence
+
+track pres_034
+parent binaryPresence
+shortLabel 034 LU2
+longLabel Batch1 LU2 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_034_LU2.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 34
+html presence
+
+track pres_035
+parent binaryPresence
+shortLabel 035 P1
+longLabel Batch1 P1 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_035_P1.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 35
+html presence
+
+track pres_036
+parent binaryPresence
+shortLabel 036 P2
+longLabel Batch1 P2 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_036_P2.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 36
+html presence
+
+track pres_037
+parent binaryPresence
+shortLabel 037 S
+longLabel Batch1 S binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_037_S.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 37
+html presence
+
+track pres_038
+parent binaryPresence
+shortLabel 038 J
+longLabel Batch1 J binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_038_J.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 38
+html presence
+
+track pres_039
+parent binaryPresence
+shortLabel 039 C0h-d1
+longLabel Batch2 C0h-d1 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_039_C0h-d1.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 39
+html presence
+
+track pres_040
+parent binaryPresence
+shortLabel 040 C0h-d2
+longLabel Batch2 C0h-d2 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_040_C0h-d2.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 40
+html presence
+
+track pres_041
+parent binaryPresence
+shortLabel 041 C0h-d3
+longLabel Batch2 C0h-d3 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_041_C0h-d3.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 41
+html presence
+
+track pres_042
+parent binaryPresence
+shortLabel 042 C0h-d4
+longLabel Batch2 C0h-d4 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_042_C0h-d4.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 42
+html presence
+
+track pres_043
+parent binaryPresence
+shortLabel 043 C0h-g1
+longLabel Batch2 C0h-g1 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_043_C0h-g1.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 43
+html presence
+
+track pres_044
+parent binaryPresence
+shortLabel 044 C0h-g2
+longLabel Batch2 C0h-g2 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_044_C0h-g2.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 44
+html presence
+
+track pres_045
+parent binaryPresence
+shortLabel 045 C0h-g3
+longLabel Batch2 C0h-g3 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_045_C0h-g3.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 45
+html presence
+
+track pres_046
+parent binaryPresence
+shortLabel 046 C0h-g4
+longLabel Batch2 C0h-g4 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_046_C0h-g4.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 46
+html presence
+
+track pres_047
+parent binaryPresence
+shortLabel 047 C12h-d1
+longLabel Batch2 C12h-d1 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_047_C12h-d1.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 47
+html presence
+
+track pres_048
+parent binaryPresence
+shortLabel 048 C12h-d2
+longLabel Batch2 C12h-d2 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_048_C12h-d2.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 48
+html presence
+
+track pres_049
+parent binaryPresence
+shortLabel 049 C12h-d3
+longLabel Batch2 C12h-d3 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_049_C12h-d3.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 49
+html presence
+
+track pres_050
+parent binaryPresence
+shortLabel 050 C12h-d4
+longLabel Batch2 C12h-d4 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_050_C12h-d4.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 50
+html presence
+
+track pres_051
+parent binaryPresence
+shortLabel 051 C12h-g1
+longLabel Batch2 C12h-g1 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_051_C12h-g1.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 51
+html presence
+
+track pres_052
+parent binaryPresence
+shortLabel 052 C12h-g2
+longLabel Batch2 C12h-g2 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_052_C12h-g2.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 52
+html presence
+
+track pres_053
+parent binaryPresence
+shortLabel 053 C12h-g3
+longLabel Batch2 C12h-g3 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_053_C12h-g3.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 53
+html presence
+
+track pres_054
+parent binaryPresence
+shortLabel 054 C12h-g4
+longLabel Batch2 C12h-g4 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_054_C12h-g4.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 54
+html presence
+
+track pres_055
+parent binaryPresence
+shortLabel 055 C24h-d1
+longLabel Batch2 C24h-d1 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_055_C24h-d1.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 55
+html presence
+
+track pres_056
+parent binaryPresence
+shortLabel 056 C24h-d2
+longLabel Batch2 C24h-d2 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_056_C24h-d2.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 56
+html presence
+
+track pres_057
+parent binaryPresence
+shortLabel 057 C24h-d3
+longLabel Batch2 C24h-d3 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_057_C24h-d3.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 57
+html presence
+
+track pres_058
+parent binaryPresence
+shortLabel 058 C24h-d4
+longLabel Batch2 C24h-d4 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_058_C24h-d4.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 58
+html presence
+
+track pres_059
+parent binaryPresence
+shortLabel 059 C24h-g1
+longLabel Batch2 C24h-g1 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_059_C24h-g1.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 59
+html presence
+
+track pres_060
+parent binaryPresence
+shortLabel 060 C24h-g2
+longLabel Batch2 C24h-g2 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_060_C24h-g2.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 60
+html presence
+
+track pres_061
+parent binaryPresence
+shortLabel 061 C24h-g3
+longLabel Batch2 C24h-g3 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_061_C24h-g3.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 61
+html presence
+
+track pres_062
+parent binaryPresence
+shortLabel 062 C24h-g4
+longLabel Batch2 C24h-g4 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_062_C24h-g4.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 62
+html presence
+
+track pres_063
+parent binaryPresence
+shortLabel 063 C48h-d1
+longLabel Batch2 C48h-d1 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_063_C48h-d1.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 63
+html presence
+
+track pres_064
+parent binaryPresence
+shortLabel 064 C48h-d2
+longLabel Batch2 C48h-d2 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_064_C48h-d2.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 64
+html presence
+
+track pres_065
+parent binaryPresence
+shortLabel 065 C48h-d3
+longLabel Batch2 C48h-d3 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_065_C48h-d3.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 65
+html presence
+
+track pres_066
+parent binaryPresence
+shortLabel 066 C48h-d4
+longLabel Batch2 C48h-d4 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_066_C48h-d4.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 66
+html presence
+
+track pres_067
+parent binaryPresence
+shortLabel 067 C48h-g1
+longLabel Batch2 C48h-g1 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_067_C48h-g1.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 67
+html presence
+
+track pres_068
+parent binaryPresence
+shortLabel 068 C48h-g2
+longLabel Batch2 C48h-g2 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_068_C48h-g2.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 68
+html presence
+
+track pres_069
+parent binaryPresence
+shortLabel 069 C48h-g3
+longLabel Batch2 C48h-g3 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_069_C48h-g3.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 69
+html presence
+
+track pres_070
+parent binaryPresence
+shortLabel 070 C48h-g4
+longLabel Batch2 C48h-g4 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_070_C48h-g4.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 70
+html presence
+
+track pres_071
+parent binaryPresence
+shortLabel 071 C6h-d1
+longLabel Batch2 C6h-d1 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_071_C6h-d1.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 71
+html presence
+
+track pres_072
+parent binaryPresence
+shortLabel 072 C6h-d2
+longLabel Batch2 C6h-d2 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_072_C6h-d2.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 72
+html presence
+
+track pres_073
+parent binaryPresence
+shortLabel 073 C6h-d3
+longLabel Batch2 C6h-d3 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_073_C6h-d3.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 73
+html presence
+
+track pres_074
+parent binaryPresence
+shortLabel 074 C6h-d4
+longLabel Batch2 C6h-d4 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_074_C6h-d4.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 74
+html presence
+
+track pres_075
+parent binaryPresence
+shortLabel 075 C6h-g1
+longLabel Batch2 C6h-g1 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_075_C6h-g1.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 75
+html presence
+
+track pres_076
+parent binaryPresence
+shortLabel 076 C6h-g2
+longLabel Batch2 C6h-g2 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_076_C6h-g2.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 76
+html presence
+
+track pres_077
+parent binaryPresence
+shortLabel 077 C6h-g3
+longLabel Batch2 C6h-g3 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_077_C6h-g3.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 77
+html presence
+
+track pres_078
+parent binaryPresence
+shortLabel 078 C6h-g4
+longLabel Batch2 C6h-g4 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_078_C6h-g4.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 78
+html presence
+
+track pres_079
+parent binaryPresence
+shortLabel 079 C72h-d1
+longLabel Batch2 C72h-d1 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_079_C72h-d1.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 79
+html presence
+
+track pres_080
+parent binaryPresence
+shortLabel 080 C72h-d2
+longLabel Batch2 C72h-d2 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_080_C72h-d2.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 80
+html presence
+
+track pres_081
+parent binaryPresence
+shortLabel 081 C72h-d3
+longLabel Batch2 C72h-d3 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_081_C72h-d3.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 81
+html presence
+
+track pres_082
+parent binaryPresence
+shortLabel 082 C72h-d4
+longLabel Batch2 C72h-d4 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_082_C72h-d4.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 82
+html presence
+
+track pres_083
+parent binaryPresence
+shortLabel 083 C72h-g1
+longLabel Batch2 C72h-g1 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_083_C72h-g1.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 83
+html presence
+
+track pres_084
+parent binaryPresence
+shortLabel 084 C72h-g2
+longLabel Batch2 C72h-g2 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_084_C72h-g2.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 84
+html presence
+
+track pres_085
+parent binaryPresence
+shortLabel 085 C72h-g3
+longLabel Batch2 C72h-g3 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_085_C72h-g3.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 85
+html presence
+
+track pres_086
+parent binaryPresence
+shortLabel 086 C72h-g4
+longLabel Batch2 C72h-g4 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_086_C72h-g4.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 86
+html presence
+
+track pres_087
+parent binaryPresence
+shortLabel 087 SB12h-d1
+longLabel Batch2 SB12h-d1 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_087_SB12h-d1.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 87
+html presence
+
+track pres_088
+parent binaryPresence
+shortLabel 088 SB12h-d2
+longLabel Batch2 SB12h-d2 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_088_SB12h-d2.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 88
+html presence
+
+track pres_089
+parent binaryPresence
+shortLabel 089 SB12h-d3
+longLabel Batch2 SB12h-d3 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_089_SB12h-d3.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 89
+html presence
+
+track pres_090
+parent binaryPresence
+shortLabel 090 SB12h-d4
+longLabel Batch2 SB12h-d4 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_090_SB12h-d4.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 90
+html presence
+
+track pres_091
+parent binaryPresence
+shortLabel 091 SB12h-g1
+longLabel Batch2 SB12h-g1 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_091_SB12h-g1.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 91
+html presence
+
+track pres_092
+parent binaryPresence
+shortLabel 092 SB12h-g2
+longLabel Batch2 SB12h-g2 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_092_SB12h-g2.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 92
+html presence
+
+track pres_093
+parent binaryPresence
+shortLabel 093 SB12h-g3
+longLabel Batch2 SB12h-g3 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_093_SB12h-g3.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 93
+html presence
+
+track pres_094
+parent binaryPresence
+shortLabel 094 SB12h-g4
+longLabel Batch2 SB12h-g4 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_094_SB12h-g4.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 94
+html presence
+
+track pres_095
+parent binaryPresence
+shortLabel 095 SB24h-d1
+longLabel Batch2 SB24h-d1 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_095_SB24h-d1.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 95
+html presence
+
+track pres_096
+parent binaryPresence
+shortLabel 096 SB24h-d2
+longLabel Batch2 SB24h-d2 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_096_SB24h-d2.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 96
+html presence
+
+track pres_097
+parent binaryPresence
+shortLabel 097 SB24h-d3
+longLabel Batch2 SB24h-d3 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_097_SB24h-d3.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 97
+html presence
+
+track pres_098
+parent binaryPresence
+shortLabel 098 SB24h-d4
+longLabel Batch2 SB24h-d4 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_098_SB24h-d4.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 98
+html presence
+
+track pres_099
+parent binaryPresence
+shortLabel 099 SB24h-g1
+longLabel Batch2 SB24h-g1 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_099_SB24h-g1.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 99
+html presence
+
+track pres_100
+parent binaryPresence
+shortLabel 100 SB24h-g2
+longLabel Batch2 SB24h-g2 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_100_SB24h-g2.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 100
+html presence
+
+track pres_101
+parent binaryPresence
+shortLabel 101 SB24h-g3
+longLabel Batch2 SB24h-g3 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_101_SB24h-g3.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 101
+html presence
+
+track pres_102
+parent binaryPresence
+shortLabel 102 SB24h-g4
+longLabel Batch2 SB24h-g4 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_102_SB24h-g4.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 102
+html presence
+
+track pres_103
+parent binaryPresence
+shortLabel 103 SB48h-d1
+longLabel Batch2 SB48h-d1 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_103_SB48h-d1.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 103
+html presence
+
+track pres_104
+parent binaryPresence
+shortLabel 104 SB48h-d2
+longLabel Batch2 SB48h-d2 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_104_SB48h-d2.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 104
+html presence
+
+track pres_105
+parent binaryPresence
+shortLabel 105 SB48h-d3
+longLabel Batch2 SB48h-d3 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_105_SB48h-d3.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 105
+html presence
+
+track pres_106
+parent binaryPresence
+shortLabel 106 SB48h-d4
+longLabel Batch2 SB48h-d4 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_106_SB48h-d4.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 106
+html presence
+
+track pres_107
+parent binaryPresence
+shortLabel 107 SB48h-g1
+longLabel Batch2 SB48h-g1 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_107_SB48h-g1.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 107
+html presence
+
+track pres_108
+parent binaryPresence
+shortLabel 108 SB48h-g2
+longLabel Batch2 SB48h-g2 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_108_SB48h-g2.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 108
+html presence
+
+track pres_109
+parent binaryPresence
+shortLabel 109 SB48h-g3
+longLabel Batch2 SB48h-g3 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_109_SB48h-g3.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 109
+html presence
+
+track pres_110
+parent binaryPresence
+shortLabel 110 SB48h-g4
+longLabel Batch2 SB48h-g4 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_110_SB48h-g4.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 110
+html presence
+
+track pres_111
+parent binaryPresence
+shortLabel 111 SB6h-d1
+longLabel Batch2 SB6h-d1 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_111_SB6h-d1.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 111
+html presence
+
+track pres_112
+parent binaryPresence
+shortLabel 112 SB6h-d2
+longLabel Batch2 SB6h-d2 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_112_SB6h-d2.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 112
+html presence
+
+track pres_113
+parent binaryPresence
+shortLabel 113 SB6h-d3
+longLabel Batch2 SB6h-d3 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_113_SB6h-d3.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 113
+html presence
+
+track pres_114
+parent binaryPresence
+shortLabel 114 SB6h-d4
+longLabel Batch2 SB6h-d4 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_114_SB6h-d4.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 114
+html presence
+
+track pres_115
+parent binaryPresence
+shortLabel 115 SB6h-g1
+longLabel Batch2 SB6h-g1 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_115_SB6h-g1.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 115
+html presence
+
+track pres_116
+parent binaryPresence
+shortLabel 116 SB6h-g2
+longLabel Batch2 SB6h-g2 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_116_SB6h-g2.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 116
+html presence
+
+track pres_117
+parent binaryPresence
+shortLabel 117 SB6h-g3
+longLabel Batch2 SB6h-g3 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_117_SB6h-g3.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 117
+html presence
+
+track pres_118
+parent binaryPresence
+shortLabel 118 SB6h-g4
+longLabel Batch2 SB6h-g4 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_118_SB6h-g4.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 118
+html presence
+
+track pres_119
+parent binaryPresence
+shortLabel 119 SB72h-d1
+longLabel Batch2 SB72h-d1 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_119_SB72h-d1.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 119
+html presence
+
+track pres_120
+parent binaryPresence
+shortLabel 120 SB72h-d2
+longLabel Batch2 SB72h-d2 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_120_SB72h-d2.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 120
+html presence
+
+track pres_121
+parent binaryPresence
+shortLabel 121 SB72h-d3
+longLabel Batch2 SB72h-d3 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_121_SB72h-d3.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 121
+html presence
+
+track pres_122
+parent binaryPresence
+shortLabel 122 SB72h-d4
+longLabel Batch2 SB72h-d4 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_122_SB72h-d4.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 122
+html presence
+
+track pres_123
+parent binaryPresence
+shortLabel 123 SB72h-g1
+longLabel Batch2 SB72h-g1 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_123_SB72h-g1.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 123
+html presence
+
+track pres_124
+parent binaryPresence
+shortLabel 124 SB72h-g2
+longLabel Batch2 SB72h-g2 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_124_SB72h-g2.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 124
+html presence
+
+track pres_125
+parent binaryPresence
+shortLabel 125 SB72h-g3
+longLabel Batch2 SB72h-g3 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_125_SB72h-g3.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 125
+html presence
+
+track pres_126
+parent binaryPresence
+shortLabel 126 SB72h-g4
+longLabel Batch2 SB72h-g4 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_126_SB72h-g4.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 126
+html presence
+
+track pres_127
+parent binaryPresence
+shortLabel 127 VAR12h-d1
+longLabel Batch2 VAR12h-d1 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_127_VAR12h-d1.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 127
+html presence
+
+track pres_128
+parent binaryPresence
+shortLabel 128 VAR12h-d2
+longLabel Batch2 VAR12h-d2 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_128_VAR12h-d2.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 128
+html presence
+
+track pres_129
+parent binaryPresence
+shortLabel 129 VAR12h-d3
+longLabel Batch2 VAR12h-d3 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_129_VAR12h-d3.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 129
+html presence
+
+track pres_130
+parent binaryPresence
+shortLabel 130 VAR12h-d4
+longLabel Batch2 VAR12h-d4 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_130_VAR12h-d4.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 130
+html presence
+
+track pres_131
+parent binaryPresence
+shortLabel 131 VAR12h-g1
+longLabel Batch2 VAR12h-g1 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_131_VAR12h-g1.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 131
+html presence
+
+track pres_132
+parent binaryPresence
+shortLabel 132 VAR12h-g2
+longLabel Batch2 VAR12h-g2 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_132_VAR12h-g2.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 132
+html presence
+
+track pres_133
+parent binaryPresence
+shortLabel 133 VAR12h-g3
+longLabel Batch2 VAR12h-g3 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_133_VAR12h-g3.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 133
+html presence
+
+track pres_134
+parent binaryPresence
+shortLabel 134 VAR12h-g4
+longLabel Batch2 VAR12h-g4 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_134_VAR12h-g4.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 134
+html presence
+
+track pres_135
+parent binaryPresence
+shortLabel 135 VAR24h-d1
+longLabel Batch2 VAR24h-d1 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_135_VAR24h-d1.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 135
+html presence
+
+track pres_136
+parent binaryPresence
+shortLabel 136 VAR24h-d2
+longLabel Batch2 VAR24h-d2 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_136_VAR24h-d2.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 136
+html presence
+
+track pres_137
+parent binaryPresence
+shortLabel 137 VAR24h-d3
+longLabel Batch2 VAR24h-d3 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_137_VAR24h-d3.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 137
+html presence
+
+track pres_138
+parent binaryPresence
+shortLabel 138 VAR24h-d4
+longLabel Batch2 VAR24h-d4 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_138_VAR24h-d4.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 138
+html presence
+
+track pres_139
+parent binaryPresence
+shortLabel 139 VAR24h-g1
+longLabel Batch2 VAR24h-g1 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_139_VAR24h-g1.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 139
+html presence
+
+track pres_140
+parent binaryPresence
+shortLabel 140 VAR24h-g2
+longLabel Batch2 VAR24h-g2 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_140_VAR24h-g2.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 140
+html presence
+
+track pres_141
+parent binaryPresence
+shortLabel 141 VAR24h-g3
+longLabel Batch2 VAR24h-g3 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_141_VAR24h-g3.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 141
+html presence
+
+track pres_142
+parent binaryPresence
+shortLabel 142 VAR24h-g4
+longLabel Batch2 VAR24h-g4 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_142_VAR24h-g4.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 142
+html presence
+
+track pres_143
+parent binaryPresence
+shortLabel 143 VAR48h-d1
+longLabel Batch2 VAR48h-d1 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_143_VAR48h-d1.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 143
+html presence
+
+track pres_144
+parent binaryPresence
+shortLabel 144 VAR48h-d2
+longLabel Batch2 VAR48h-d2 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_144_VAR48h-d2.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 144
+html presence
+
+track pres_145
+parent binaryPresence
+shortLabel 145 VAR48h-d3
+longLabel Batch2 VAR48h-d3 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_145_VAR48h-d3.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 145
+html presence
+
+track pres_146
+parent binaryPresence
+shortLabel 146 VAR48h-d4
+longLabel Batch2 VAR48h-d4 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_146_VAR48h-d4.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 146
+html presence
+
+track pres_147
+parent binaryPresence
+shortLabel 147 VAR48h-g1
+longLabel Batch2 VAR48h-g1 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_147_VAR48h-g1.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 147
+html presence
+
+track pres_148
+parent binaryPresence
+shortLabel 148 VAR48h-g2
+longLabel Batch2 VAR48h-g2 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_148_VAR48h-g2.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 148
+html presence
+
+track pres_149
+parent binaryPresence
+shortLabel 149 VAR48h-g3
+longLabel Batch2 VAR48h-g3 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_149_VAR48h-g3.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 149
+html presence
+
+track pres_150
+parent binaryPresence
+shortLabel 150 VAR48h-g4
+longLabel Batch2 VAR48h-g4 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_150_VAR48h-g4.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 150
+html presence
+
+track pres_151
+parent binaryPresence
+shortLabel 151 VAR6h-d1
+longLabel Batch2 VAR6h-d1 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_151_VAR6h-d1.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 151
+html presence
+
+track pres_152
+parent binaryPresence
+shortLabel 152 VAR6h-d2
+longLabel Batch2 VAR6h-d2 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_152_VAR6h-d2.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 152
+html presence
+
+track pres_153
+parent binaryPresence
+shortLabel 153 VAR6h-d3
+longLabel Batch2 VAR6h-d3 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_153_VAR6h-d3.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 153
+html presence
+
+track pres_154
+parent binaryPresence
+shortLabel 154 VAR6h-d4
+longLabel Batch2 VAR6h-d4 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_154_VAR6h-d4.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 154
+html presence
+
+track pres_155
+parent binaryPresence
+shortLabel 155 VAR6h-g1
+longLabel Batch2 VAR6h-g1 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_155_VAR6h-g1.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 155
+html presence
+
+track pres_156
+parent binaryPresence
+shortLabel 156 VAR6h-g2
+longLabel Batch2 VAR6h-g2 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_156_VAR6h-g2.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 156
+html presence
+
+track pres_157
+parent binaryPresence
+shortLabel 157 VAR6h-g3
+longLabel Batch2 VAR6h-g3 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_157_VAR6h-g3.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 157
+html presence
+
+track pres_158
+parent binaryPresence
+shortLabel 158 VAR6h-g4
+longLabel Batch2 VAR6h-g4 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_158_VAR6h-g4.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 158
+html presence
+
+track pres_159
+parent binaryPresence
+shortLabel 159 VAR72h-d1
+longLabel Batch2 VAR72h-d1 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_159_VAR72h-d1.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 159
+html presence
+
+track pres_160
+parent binaryPresence
+shortLabel 160 VAR72h-d2
+longLabel Batch2 VAR72h-d2 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_160_VAR72h-d2.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 160
+html presence
+
+track pres_161
+parent binaryPresence
+shortLabel 161 VAR72h-d3
+longLabel Batch2 VAR72h-d3 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_161_VAR72h-d3.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 161
+html presence
+
+track pres_162
+parent binaryPresence
+shortLabel 162 VAR72h-d4
+longLabel Batch2 VAR72h-d4 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_162_VAR72h-d4.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 162
+html presence
+
+track pres_163
+parent binaryPresence
+shortLabel 163 VAR72h-g1
+longLabel Batch2 VAR72h-g1 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_163_VAR72h-g1.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 163
+html presence
+
+track pres_164
+parent binaryPresence
+shortLabel 164 VAR72h-g2
+longLabel Batch2 VAR72h-g2 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_164_VAR72h-g2.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 164
+html presence
+
+track pres_165
+parent binaryPresence
+shortLabel 165 VAR72h-g3
+longLabel Batch2 VAR72h-g3 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_165_VAR72h-g3.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 165
+html presence
+
+track pres_166
+parent binaryPresence
+shortLabel 166 VAR72h-g4
+longLabel Batch2 VAR72h-g4 binary presence per 200-bp window; 1 means >=1 MAPQ30/baseQ20 aligned base
+type bigWig
+bigDataUrl presence/presence_166_VAR72h-g4.bw
+visibility hide
+autoScale off
+viewLimits 0:1
+alwaysZero on
+graphTypeDefault bar
+priority 166
+html presence
