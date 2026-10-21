@@ -212,6 +212,49 @@ color 34,91,159
 priority 147
 html hub.html
 
+track lowHeatmapPrototype
+superTrack on show
+shortLabel Heatmap prototype
+longLabel Prototype native UCSC positional heatmaps for three low-abundance samples; one independent row per sample
+priority 2.5
+html heatmap
+
+track heatmap_proto_001
+parent lowHeatmapPrototype
+shortLabel 001 E
+longLabel Batch1 E; one-row positional heatmap; each column is a 200-bp window; score is log1p(mean per-base depth), blank means no qualifying depth
+type bigBed 12 +
+bigDataUrl heatmap_prototype/heatmap_001_E.bb
+style heatmap
+visibility full
+maxItems 10
+priority 1
+html heatmap
+
+track heatmap_proto_039
+parent lowHeatmapPrototype
+shortLabel 039 C0h-d1
+longLabel Batch2 C0h-d1; one-row positional heatmap; each column is a 200-bp window; score is log1p(mean per-base depth), blank means no qualifying depth
+type bigBed 12 +
+bigDataUrl heatmap_prototype/heatmap_039_C0h-d1.bb
+style heatmap
+visibility full
+maxItems 10
+priority 39
+html heatmap
+
+track heatmap_proto_055
+parent lowHeatmapPrototype
+shortLabel 055 C24h-d1
+longLabel Batch2 C24h-d1; one-row positional heatmap; each column is a 200-bp window; score is log1p(mean per-base depth), blank means no qualifying depth
+type bigBed 12 +
+bigDataUrl heatmap_prototype/heatmap_055_C24h-d1.bb
+style heatmap
+visibility full
+maxItems 10
+priority 55
+html heatmap
+
 track binaryPresence
 superTrack on
 shortLabel Individual presence

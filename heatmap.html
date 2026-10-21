@@ -1,0 +1,11 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<title>OsHV-1 coverage heatmap methods</title>
+<h2>Low-abundance sample coverage heatmaps</h2>
+<p>These tracks use the native UCSC positional heatmap display in a BED12+7 bigBed. Each low-abundance sample has its own independent track and one heatmap row. Each column is one consecutive, non-overlapping 200-bp window on NC_005881.2 (the final window is 39 bp). Empty score cells are left blank when there is no qualifying depth. All non-zero cells have a positive score and therefore receive a color.</p>
+<p>Per-window mean depth is calculated from existing viral BAMs using samtools depth -aa -Q 30 -q 20. The cell score is log1p(mean per-base depth); mouseover labels retain mean depth, covered bases and maximum depth in the window. A mate pair can contribute per-base coverage where both mates overlap; the heatmap encodes depth, not unique read-pair counts.</p>
+<p>The gradient uses log1p-transformed mean-depth bounds corresponding to raw mean depths 0, 0.01, 0.05, 0.2, 1, 5, 20, 100 and 1000. Colors progress from pale yellow (#fff2cc) through orange to dark brown (#301004). The first bound is already colored, so even a single qualifying read with a very small mean depth is visible. Blank means no base in the window passed both MAPQ 30 and base quality 20.</p>
+<p>Ten previously selected higher-signal samples retain true-depth bigWig peak tracks. They are grouped separately from these low-abundance heatmaps. Selection of display type does not alter whether a sample is present in the underlying 166-sample presence statistics.</p>
+<p>These are raw-virus alignments and are not uniformly filtered by host-competition across both batches. Heatmap color is not absolute viral RNA abundance and is not a read-pair count.</p>
+</html>

@@ -1,0 +1,4 @@
+sample_order	Batch	Sample_ID	positive_windows	bigBed_records	heatmap_columns	heatmap_rows	bigDataUrl
+1	Batch1	E	1	1	1038	1	heatmap_prototype/heatmap_001_E.bb
+39	Batch2	C0h-d1	1	1	1038	1	heatmap_prototype/heatmap_039_C0h-d1.bb
+55	Batch2	C24h-d1	1	1	1038	1	heatmap_prototype/heatmap_055_C24h-d1.bb
