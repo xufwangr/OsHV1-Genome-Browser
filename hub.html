@@ -1,1 +1,9 @@
-<!doctype html><html lang='en'><meta charset='utf-8'><title>OsHV-1 hub methods</title><h2>OsHV-1 NC_005881.2 (207,439 bp)</h2><p>The 200-bp sample-presence call is positive when samtools depth -aa -Q 30 -q 20 reports nonzero depth at any base in the window; each sample contributes at most one. Presence count is a number of positive samples, and presence fraction is positive samples divided by 166. Neither is read count or expression.</p><p>The 166 samples comprise 38 Batch 1 and 128 Batch 2 samples. Existing raw-virus alignment results were reused; no FASTQ remapping was done. Both aggregate presence and representative coverage tracks are based on viral alignments, without uniform host-competition filtering across both batches. See <a href='presence.html'>presence methods</a> and <a href='candidates.html'>candidate evidence and sequences</a>.</p></html>
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<title>OsHV-1 hub methods</title>
+<h2>OsHV-1 NC_005881.2 (207,439 bp)</h2>
+<p>All 110 samples with qualifying viral reads are represented by individual tracks. Ten representative higher-signal samples use true-depth bigWig peaks. The other 100 samples use one-row, 200-bp native positional heatmaps, where color encodes log1p(mean per-base depth) and windows with no qualifying depth are blank. See <a href="heatmap.html">heatmap methods and color bounds</a>.</p>
+<p>The 200-bp sample-presence call is positive when <code>samtools depth -aa -Q 30 -q 20</code> reports nonzero depth at any base in the window; each sample contributes at most one. Presence count is the number of positive samples, and presence fraction is positive samples divided by 166. Neither is read count or expression.</p>
+<p>The 166 samples comprise 38 Batch 1 and 128 Batch 2 samples. Existing raw-virus alignment results were reused; no FASTQ remapping was done. Both aggregate presence and sample coverage tracks are based on viral alignments, without uniform host-competition filtering across both batches. See <a href="presence.html">presence methods</a> and <a href="candidates.html">candidate evidence and sequences</a>.</p>
+</html>

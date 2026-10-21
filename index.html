@@ -1,1 +1,12 @@
-<!doctype html><html lang='en'><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>OsHV-1 Assembly Hub</title><style>body{font:17px/1.55 system-ui,sans-serif;max-width:54rem;margin:3rem auto;padding:0 1rem;color:#17324d}a{color:#07559a}</style><h1>OsHV-1 RNA-seq Assembly Hub</h1><p>NC_005881.2 (207,439 bp); 200-bp viral read presence across 166 samples.</p><p><a id='ucsc' href='#'>Open this hub in UCSC Genome Browser</a> · <a href='hub.txt'>hub.txt</a> · <a href='README.md'>README and methods</a> · <a href='candidates.html'>candidate regions</a></p><p>Positive-sample counts and fractions are not read counts or expression. Individual sample presence tracks are hidden by default. Candidate transcript 3-prime ends are unverified.</p><script>const q=new URLSearchParams({genome:'OsHV1_NC_005881_2',hubUrl:new URL('hub.txt',location.href).href,position:'NC_005881.2:1-207439'});document.getElementById('ucsc').href='https://genome.ucsc.edu/cgi-bin/hgTracks?'+q.toString();</script></html>
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>OsHV-1 Assembly Hub</title>
+<style>body{font:17px/1.55 system-ui,sans-serif;max-width:54rem;margin:3rem auto;padding:0 1rem;color:#17324d}a{color:#07559a}</style>
+<h1>OsHV-1 RNA-seq Assembly Hub</h1>
+<p>NC_005881.2 (207,439 bp); mapping and 200-bp viral coverage across 166 samples.</p>
+<p><a id="ucsc" href="#">Open this hub in UCSC Genome Browser</a> · <a href="hub.txt">hub.txt</a> · <a href="README.md">README and methods</a> · <a href="candidates.html">candidate regions</a></p>
+<p>All 110 samples with qualifying viral reads have individual tracks: ten representative higher-signal samples use true-depth bigWig peaks and the other 100 use per-sample 200-bp native heatmaps colored by log1p(mean depth). Aggregate positive-sample count and fraction are separate overview tracks. Counts and fractions are not read counts or expression; candidate mRNA 3-prime ends remain unverified.</p>
+<script>const q=new URLSearchParams({genome:'OsHV1_NC_005881_2',hubUrl:new URL('hub.txt',location.href).href,position:'NC_005881.2:1-207439'});document.getElementById('ucsc').href='https://genome.ucsc.edu/cgi-bin/hgTracks?'+q.toString();</script>
+</html>
