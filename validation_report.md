@@ -17,6 +17,9 @@ Validation updated 2026-10-21 for reference NC_005881.2 (207,439 bp).
 - The prior nine candidate FASTA sequences match their NC_005881.2 reference slices and inferred strand orientation. Their mRNA 3′ ends remain unverified predictions/candidates.
 - No FASTQ, BAM, BAI, or host reference files are included in the published Hub repository.
 
-## Online validation pending final deployment
+## Online validation after deployment
 
-The prototype was loaded in UCSC Genome Browser at `NC_005881.2:149500-149900` and the three sample heatmap tracks were present without the earlier heatmap label-length warning. The full 100-track configuration and data files must be rechecked at the published GitHub Pages URLs after the final commit and Pages deployment. This report will be updated with final online configuration-check, URL/Range, and browser-load results after deployment.
+- Commit `e20a439548e490765574e07930257c04eba27a82` is present on `main`. GitHub Pages workflow run #7 completed successfully.
+- UCSC Track Hub Development's online configuration checker completed with **0 configuration errors** for the deployed Hub. The `hubCheck` command-line binary was not available locally; the UCSC online checker was used as the equivalent configuration check.
+- The published hub definition, genomes file, full 86-kB trackDb, sampled heatmap bigBeds (first, middle and last), representative bigWig and 2bit responded over HTTPS. Range requests to the binary files returned HTTP 206 with the requested bytes. The browser tool returned an empty body for the range request against the text `trackDb.txt`, but a normal GET returned HTTP 200, 86,356 bytes, including all 100 `style heatmap` entries.
+- The three-sample prototype had already loaded in UCSC Genome Browser before batch generation and was parsed/rendered without the corrected label-array warning. After deployment, a fresh direct `hgTracks` load resolved the custom assembly title but returned an empty track image/table in the browser session; therefore the complete 100-track set's visual appearance was **not confirmed in a fresh UCSC browser session**. The deployed configuration passes the UCSC online checker, and all sampled data URLs are accessible, but full live rendering remains an outstanding UCSC-side verification.
