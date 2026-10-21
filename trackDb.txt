@@ -57,8 +57,8 @@ html candidates
 
 track highSignal
 superTrack on show
-shortLabel Representative coverage
-longLabel Ten samples selected by MAPQ30 primary records and 200-bp breadth (five per batch); raw-virus alignments, MAPQ>=30/baseQ>=20
+shortLabel High-signal coverage
+Ten representative high-signal samples (five per batch), true per-base viral alignment depth; samtools depth -aa -Q 30 -q 20
 priority 2
 html hub.html
 
@@ -212,47 +212,1211 @@ color 34,91,159
 priority 147
 html hub.html
 
-track lowHeatmapPrototype
-superTrack on show
-shortLabel Heatmap prototype
-longLabel Prototype native UCSC positional heatmaps for three low-abundance samples; one independent row per sample
-priority 2.5
+track lowHeatmap
+superTrack on hide
+shortLabel Low-abundance heatmaps
+longLabel 100 low-abundance positive samples; one independent native positional heatmap track per sample
+priority 3
 html heatmap
 
-track heatmap_proto_001
-parent lowHeatmapPrototype
+track lowcov_001
+parent lowHeatmap
 shortLabel 001 E
-longLabel Batch1 E; one-row positional heatmap; each column is a 200-bp window; score is log1p(mean per-base depth), blank means no qualifying depth
+longLabel Batch1 E; 200-bp native heatmap of log1p(mean per-base depth); MAPQ>=30/baseQ>=20
 type bigBed 12 +
-bigDataUrl heatmap_prototype/heatmap_001_E.bb
+bigDataUrl heatmap/heatmap_001_E.bb
 style heatmap
 visibility full
 maxItems 10
 priority 1
 html heatmap
 
-track heatmap_proto_039
-parent lowHeatmapPrototype
-shortLabel 039 C0h-d1
-longLabel Batch2 C0h-d1; one-row positional heatmap; each column is a 200-bp window; score is log1p(mean per-base depth), blank means no qualifying depth
+track lowcov_002
+parent lowHeatmap
+shortLabel 002 TC
+longLabel Batch1 TC; 200-bp native heatmap of log1p(mean per-base depth); MAPQ>=30/baseQ>=20
 type bigBed 12 +
-bigDataUrl heatmap_prototype/heatmap_039_C0h-d1.bb
+bigDataUrl heatmap/heatmap_002_TC.bb
+style heatmap
+visibility full
+maxItems 10
+priority 2
+html heatmap
+
+track lowcov_003
+parent lowHeatmap
+shortLabel 003 FC
+longLabel Batch1 FC; 200-bp native heatmap of log1p(mean per-base depth); MAPQ>=30/baseQ>=20
+type bigBed 12 +
+bigDataUrl heatmap/heatmap_003_FC.bb
+style heatmap
+visibility full
+maxItems 10
+priority 3
+html heatmap
+
+track lowcov_004
+parent lowHeatmap
+shortLabel 004 EM
+longLabel Batch1 EM; 200-bp native heatmap of log1p(mean per-base depth); MAPQ>=30/baseQ>=20
+type bigBed 12 +
+bigDataUrl heatmap/heatmap_004_EM.bb
+style heatmap
+visibility full
+maxItems 10
+priority 4
+html heatmap
+
+track lowcov_005
+parent lowHeatmap
+shortLabel 005 M
+longLabel Batch1 M; 200-bp native heatmap of log1p(mean per-base depth); MAPQ>=30/baseQ>=20
+type bigBed 12 +
+bigDataUrl heatmap/heatmap_005_M.bb
+style heatmap
+visibility full
+maxItems 10
+priority 5
+html heatmap
+
+track lowcov_006
+parent lowHeatmap
+shortLabel 006 B
+longLabel Batch1 B; 200-bp native heatmap of log1p(mean per-base depth); MAPQ>=30/baseQ>=20
+type bigBed 12 +
+bigDataUrl heatmap/heatmap_006_B.bb
+style heatmap
+visibility full
+maxItems 10
+priority 6
+html heatmap
+
+track lowcov_007
+parent lowHeatmap
+shortLabel 007 RM
+longLabel Batch1 RM; 200-bp native heatmap of log1p(mean per-base depth); MAPQ>=30/baseQ>=20
+type bigBed 12 +
+bigDataUrl heatmap/heatmap_007_RM.bb
+style heatmap
+visibility full
+maxItems 10
+priority 7
+html heatmap
+
+track lowcov_008
+parent lowHeatmap
+shortLabel 008 FS
+longLabel Batch1 FS; 200-bp native heatmap of log1p(mean per-base depth); MAPQ>=30/baseQ>=20
+type bigBed 12 +
+bigDataUrl heatmap/heatmap_008_FS.bb
+style heatmap
+visibility full
+maxItems 10
+priority 8
+html heatmap
+
+track lowcov_009
+parent lowHeatmap
+shortLabel 009 EG
+longLabel Batch1 EG; 200-bp native heatmap of log1p(mean per-base depth); MAPQ>=30/baseQ>=20
+type bigBed 12 +
+bigDataUrl heatmap/heatmap_009_EG.bb
+style heatmap
+visibility full
+maxItems 10
+priority 9
+html heatmap
+
+track lowcov_010
+parent lowHeatmap
+shortLabel 010 G
+longLabel Batch1 G; 200-bp native heatmap of log1p(mean per-base depth); MAPQ>=30/baseQ>=20
+type bigBed 12 +
+bigDataUrl heatmap/heatmap_010_G.bb
+style heatmap
+visibility full
+maxItems 10
+priority 10
+html heatmap
+
+track lowcov_011
+parent lowHeatmap
+shortLabel 011 T1
+longLabel Batch1 T1; 200-bp native heatmap of log1p(mean per-base depth); MAPQ>=30/baseQ>=20
+type bigBed 12 +
+bigDataUrl heatmap/heatmap_011_T1.bb
+style heatmap
+visibility full
+maxItems 10
+priority 11
+html heatmap
+
+track lowcov_012
+parent lowHeatmap
+shortLabel 012 T2
+longLabel Batch1 T2; 200-bp native heatmap of log1p(mean per-base depth); MAPQ>=30/baseQ>=20
+type bigBed 12 +
+bigDataUrl heatmap/heatmap_012_T2.bb
+style heatmap
+visibility full
+maxItems 10
+priority 12
+html heatmap
+
+track lowcov_013
+parent lowHeatmap
+shortLabel 013 T3
+longLabel Batch1 T3; 200-bp native heatmap of log1p(mean per-base depth); MAPQ>=30/baseQ>=20
+type bigBed 12 +
+bigDataUrl heatmap/heatmap_013_T3.bb
+style heatmap
+visibility full
+maxItems 10
+priority 13
+html heatmap
+
+track lowcov_014
+parent lowHeatmap
+shortLabel 014 T4
+longLabel Batch1 T4; 200-bp native heatmap of log1p(mean per-base depth); MAPQ>=30/baseQ>=20
+type bigBed 12 +
+bigDataUrl heatmap/heatmap_014_T4.bb
+style heatmap
+visibility full
+maxItems 10
+priority 14
+html heatmap
+
+track lowcov_015
+parent lowHeatmap
+shortLabel 015 T5
+longLabel Batch1 T5; 200-bp native heatmap of log1p(mean per-base depth); MAPQ>=30/baseQ>=20
+type bigBed 12 +
+bigDataUrl heatmap/heatmap_015_T5.bb
+style heatmap
+visibility full
+maxItems 10
+priority 15
+html heatmap
+
+track lowcov_016
+parent lowHeatmap
+shortLabel 016 ED1
+longLabel Batch1 ED1; 200-bp native heatmap of log1p(mean per-base depth); MAPQ>=30/baseQ>=20
+type bigBed 12 +
+bigDataUrl heatmap/heatmap_016_ED1.bb
+style heatmap
+visibility full
+maxItems 10
+priority 16
+html heatmap
+
+track lowcov_017
+parent lowHeatmap
+shortLabel 017 ED2
+longLabel Batch1 ED2; 200-bp native heatmap of log1p(mean per-base depth); MAPQ>=30/baseQ>=20
+type bigBed 12 +
+bigDataUrl heatmap/heatmap_017_ED2.bb
+style heatmap
+visibility full
+maxItems 10
+priority 17
+html heatmap
+
+track lowcov_018
+parent lowHeatmap
+shortLabel 018 D1
+longLabel Batch1 D1; 200-bp native heatmap of log1p(mean per-base depth); MAPQ>=30/baseQ>=20
+type bigBed 12 +
+bigDataUrl heatmap/heatmap_018_D1.bb
+style heatmap
+visibility full
+maxItems 10
+priority 18
+html heatmap
+
+track lowcov_019
+parent lowHeatmap
+shortLabel 019 D2
+longLabel Batch1 D2; 200-bp native heatmap of log1p(mean per-base depth); MAPQ>=30/baseQ>=20
+type bigBed 12 +
+bigDataUrl heatmap/heatmap_019_D2.bb
+style heatmap
+visibility full
+maxItems 10
+priority 19
+html heatmap
+
+track lowcov_020
+parent lowHeatmap
+shortLabel 020 D3
+longLabel Batch1 D3; 200-bp native heatmap of log1p(mean per-base depth); MAPQ>=30/baseQ>=20
+type bigBed 12 +
+bigDataUrl heatmap/heatmap_020_D3.bb
+style heatmap
+visibility full
+maxItems 10
+priority 20
+html heatmap
+
+track lowcov_021
+parent lowHeatmap
+shortLabel 021 D4
+longLabel Batch1 D4; 200-bp native heatmap of log1p(mean per-base depth); MAPQ>=30/baseQ>=20
+type bigBed 12 +
+bigDataUrl heatmap/heatmap_021_D4.bb
+style heatmap
+visibility full
+maxItems 10
+priority 21
+html heatmap
+
+track lowcov_022
+parent lowHeatmap
+shortLabel 022 D5
+longLabel Batch1 D5; 200-bp native heatmap of log1p(mean per-base depth); MAPQ>=30/baseQ>=20
+type bigBed 12 +
+bigDataUrl heatmap/heatmap_022_D5.bb
+style heatmap
+visibility full
+maxItems 10
+priority 22
+html heatmap
+
+track lowcov_023
+parent lowHeatmap
+shortLabel 023 D6
+longLabel Batch1 D6; 200-bp native heatmap of log1p(mean per-base depth); MAPQ>=30/baseQ>=20
+type bigBed 12 +
+bigDataUrl heatmap/heatmap_023_D6.bb
+style heatmap
+visibility full
+maxItems 10
+priority 23
+html heatmap
+
+track lowcov_024
+parent lowHeatmap
+shortLabel 024 D7
+longLabel Batch1 D7; 200-bp native heatmap of log1p(mean per-base depth); MAPQ>=30/baseQ>=20
+type bigBed 12 +
+bigDataUrl heatmap/heatmap_024_D7.bb
+style heatmap
+visibility full
+maxItems 10
+priority 24
+html heatmap
+
+track lowcov_025
+parent lowHeatmap
+shortLabel 025 EU1
+longLabel Batch1 EU1; 200-bp native heatmap of log1p(mean per-base depth); MAPQ>=30/baseQ>=20
+type bigBed 12 +
+bigDataUrl heatmap/heatmap_025_EU1.bb
+style heatmap
+visibility full
+maxItems 10
+priority 25
+html heatmap
+
+track lowcov_026
+parent lowHeatmap
+shortLabel 026 EU2
+longLabel Batch1 EU2; 200-bp native heatmap of log1p(mean per-base depth); MAPQ>=30/baseQ>=20
+type bigBed 12 +
+bigDataUrl heatmap/heatmap_026_EU2.bb
+style heatmap
+visibility full
+maxItems 10
+priority 26
+html heatmap
+
+track lowcov_030
+parent lowHeatmap
+shortLabel 030 U4
+longLabel Batch1 U4; 200-bp native heatmap of log1p(mean per-base depth); MAPQ>=30/baseQ>=20
+type bigBed 12 +
+bigDataUrl heatmap/heatmap_030_U4.bb
+style heatmap
+visibility full
+maxItems 10
+priority 30
+html heatmap
+
+track lowcov_031
+parent lowHeatmap
+shortLabel 031 U5
+longLabel Batch1 U5; 200-bp native heatmap of log1p(mean per-base depth); MAPQ>=30/baseQ>=20
+type bigBed 12 +
+bigDataUrl heatmap/heatmap_031_U5.bb
+style heatmap
+visibility full
+maxItems 10
+priority 31
+html heatmap
+
+track lowcov_032
+parent lowHeatmap
+shortLabel 032 U6
+longLabel Batch1 U6; 200-bp native heatmap of log1p(mean per-base depth); MAPQ>=30/baseQ>=20
+type bigBed 12 +
+bigDataUrl heatmap/heatmap_032_U6.bb
+style heatmap
+visibility full
+maxItems 10
+priority 32
+html heatmap
+
+track lowcov_033
+parent lowHeatmap
+shortLabel 033 LU1
+longLabel Batch1 LU1; 200-bp native heatmap of log1p(mean per-base depth); MAPQ>=30/baseQ>=20
+type bigBed 12 +
+bigDataUrl heatmap/heatmap_033_LU1.bb
+style heatmap
+visibility full
+maxItems 10
+priority 33
+html heatmap
+
+track lowcov_034
+parent lowHeatmap
+shortLabel 034 LU2
+longLabel Batch1 LU2; 200-bp native heatmap of log1p(mean per-base depth); MAPQ>=30/baseQ>=20
+type bigBed 12 +
+bigDataUrl heatmap/heatmap_034_LU2.bb
+style heatmap
+visibility full
+maxItems 10
+priority 34
+html heatmap
+
+track lowcov_035
+parent lowHeatmap
+shortLabel 035 P1
+longLabel Batch1 P1; 200-bp native heatmap of log1p(mean per-base depth); MAPQ>=30/baseQ>=20
+type bigBed 12 +
+bigDataUrl heatmap/heatmap_035_P1.bb
+style heatmap
+visibility full
+maxItems 10
+priority 35
+html heatmap
+
+track lowcov_038
+parent lowHeatmap
+shortLabel 038 J
+longLabel Batch1 J; 200-bp native heatmap of log1p(mean per-base depth); MAPQ>=30/baseQ>=20
+type bigBed 12 +
+bigDataUrl heatmap/heatmap_038_J.bb
+style heatmap
+visibility full
+maxItems 10
+priority 38
+html heatmap
+
+track lowcov_039
+parent lowHeatmap
+shortLabel 039 C0h-d1
+longLabel Batch2 C0h-d1; 200-bp native heatmap of log1p(mean per-base depth); MAPQ>=30/baseQ>=20
+type bigBed 12 +
+bigDataUrl heatmap/heatmap_039_C0h-d1.bb
 style heatmap
 visibility full
 maxItems 10
 priority 39
 html heatmap
 
-track heatmap_proto_055
-parent lowHeatmapPrototype
-shortLabel 055 C24h-d1
-longLabel Batch2 C24h-d1; one-row positional heatmap; each column is a 200-bp window; score is log1p(mean per-base depth), blank means no qualifying depth
+track lowcov_042
+parent lowHeatmap
+shortLabel 042 C0h-d4
+longLabel Batch2 C0h-d4; 200-bp native heatmap of log1p(mean per-base depth); MAPQ>=30/baseQ>=20
 type bigBed 12 +
-bigDataUrl heatmap_prototype/heatmap_055_C24h-d1.bb
+bigDataUrl heatmap/heatmap_042_C0h-d4.bb
+style heatmap
+visibility full
+maxItems 10
+priority 42
+html heatmap
+
+track lowcov_051
+parent lowHeatmap
+shortLabel 051 C12h-g1
+longLabel Batch2 C12h-g1; 200-bp native heatmap of log1p(mean per-base depth); MAPQ>=30/baseQ>=20
+type bigBed 12 +
+bigDataUrl heatmap/heatmap_051_C12h-g1.bb
+style heatmap
+visibility full
+maxItems 10
+priority 51
+html heatmap
+
+track lowcov_053
+parent lowHeatmap
+shortLabel 053 C12h-g3
+longLabel Batch2 C12h-g3; 200-bp native heatmap of log1p(mean per-base depth); MAPQ>=30/baseQ>=20
+type bigBed 12 +
+bigDataUrl heatmap/heatmap_053_C12h-g3.bb
+style heatmap
+visibility full
+maxItems 10
+priority 53
+html heatmap
+
+track lowcov_055
+parent lowHeatmap
+shortLabel 055 C24h-d1
+longLabel Batch2 C24h-d1; 200-bp native heatmap of log1p(mean per-base depth); MAPQ>=30/baseQ>=20
+type bigBed 12 +
+bigDataUrl heatmap/heatmap_055_C24h-d1.bb
 style heatmap
 visibility full
 maxItems 10
 priority 55
+html heatmap
+
+track lowcov_057
+parent lowHeatmap
+shortLabel 057 C24h-d3
+longLabel Batch2 C24h-d3; 200-bp native heatmap of log1p(mean per-base depth); MAPQ>=30/baseQ>=20
+type bigBed 12 +
+bigDataUrl heatmap/heatmap_057_C24h-d3.bb
+style heatmap
+visibility full
+maxItems 10
+priority 57
+html heatmap
+
+track lowcov_058
+parent lowHeatmap
+shortLabel 058 C24h-d4
+longLabel Batch2 C24h-d4; 200-bp native heatmap of log1p(mean per-base depth); MAPQ>=30/baseQ>=20
+type bigBed 12 +
+bigDataUrl heatmap/heatmap_058_C24h-d4.bb
+style heatmap
+visibility full
+maxItems 10
+priority 58
+html heatmap
+
+track lowcov_059
+parent lowHeatmap
+shortLabel 059 C24h-g1
+longLabel Batch2 C24h-g1; 200-bp native heatmap of log1p(mean per-base depth); MAPQ>=30/baseQ>=20
+type bigBed 12 +
+bigDataUrl heatmap/heatmap_059_C24h-g1.bb
+style heatmap
+visibility full
+maxItems 10
+priority 59
+html heatmap
+
+track lowcov_061
+parent lowHeatmap
+shortLabel 061 C24h-g3
+longLabel Batch2 C24h-g3; 200-bp native heatmap of log1p(mean per-base depth); MAPQ>=30/baseQ>=20
+type bigBed 12 +
+bigDataUrl heatmap/heatmap_061_C24h-g3.bb
+style heatmap
+visibility full
+maxItems 10
+priority 61
+html heatmap
+
+track lowcov_063
+parent lowHeatmap
+shortLabel 063 C48h-d1
+longLabel Batch2 C48h-d1; 200-bp native heatmap of log1p(mean per-base depth); MAPQ>=30/baseQ>=20
+type bigBed 12 +
+bigDataUrl heatmap/heatmap_063_C48h-d1.bb
+style heatmap
+visibility full
+maxItems 10
+priority 63
+html heatmap
+
+track lowcov_065
+parent lowHeatmap
+shortLabel 065 C48h-d3
+longLabel Batch2 C48h-d3; 200-bp native heatmap of log1p(mean per-base depth); MAPQ>=30/baseQ>=20
+type bigBed 12 +
+bigDataUrl heatmap/heatmap_065_C48h-d3.bb
+style heatmap
+visibility full
+maxItems 10
+priority 65
+html heatmap
+
+track lowcov_066
+parent lowHeatmap
+shortLabel 066 C48h-d4
+longLabel Batch2 C48h-d4; 200-bp native heatmap of log1p(mean per-base depth); MAPQ>=30/baseQ>=20
+type bigBed 12 +
+bigDataUrl heatmap/heatmap_066_C48h-d4.bb
+style heatmap
+visibility full
+maxItems 10
+priority 66
+html heatmap
+
+track lowcov_067
+parent lowHeatmap
+shortLabel 067 C48h-g1
+longLabel Batch2 C48h-g1; 200-bp native heatmap of log1p(mean per-base depth); MAPQ>=30/baseQ>=20
+type bigBed 12 +
+bigDataUrl heatmap/heatmap_067_C48h-g1.bb
+style heatmap
+visibility full
+maxItems 10
+priority 67
+html heatmap
+
+track lowcov_068
+parent lowHeatmap
+shortLabel 068 C48h-g2
+longLabel Batch2 C48h-g2; 200-bp native heatmap of log1p(mean per-base depth); MAPQ>=30/baseQ>=20
+type bigBed 12 +
+bigDataUrl heatmap/heatmap_068_C48h-g2.bb
+style heatmap
+visibility full
+maxItems 10
+priority 68
+html heatmap
+
+track lowcov_069
+parent lowHeatmap
+shortLabel 069 C48h-g3
+longLabel Batch2 C48h-g3; 200-bp native heatmap of log1p(mean per-base depth); MAPQ>=30/baseQ>=20
+type bigBed 12 +
+bigDataUrl heatmap/heatmap_069_C48h-g3.bb
+style heatmap
+visibility full
+maxItems 10
+priority 69
+html heatmap
+
+track lowcov_072
+parent lowHeatmap
+shortLabel 072 C6h-d2
+longLabel Batch2 C6h-d2; 200-bp native heatmap of log1p(mean per-base depth); MAPQ>=30/baseQ>=20
+type bigBed 12 +
+bigDataUrl heatmap/heatmap_072_C6h-d2.bb
+style heatmap
+visibility full
+maxItems 10
+priority 72
+html heatmap
+
+track lowcov_073
+parent lowHeatmap
+shortLabel 073 C6h-d3
+longLabel Batch2 C6h-d3; 200-bp native heatmap of log1p(mean per-base depth); MAPQ>=30/baseQ>=20
+type bigBed 12 +
+bigDataUrl heatmap/heatmap_073_C6h-d3.bb
+style heatmap
+visibility full
+maxItems 10
+priority 73
+html heatmap
+
+track lowcov_074
+parent lowHeatmap
+shortLabel 074 C6h-d4
+longLabel Batch2 C6h-d4; 200-bp native heatmap of log1p(mean per-base depth); MAPQ>=30/baseQ>=20
+type bigBed 12 +
+bigDataUrl heatmap/heatmap_074_C6h-d4.bb
+style heatmap
+visibility full
+maxItems 10
+priority 74
+html heatmap
+
+track lowcov_079
+parent lowHeatmap
+shortLabel 079 C72h-d1
+longLabel Batch2 C72h-d1; 200-bp native heatmap of log1p(mean per-base depth); MAPQ>=30/baseQ>=20
+type bigBed 12 +
+bigDataUrl heatmap/heatmap_079_C72h-d1.bb
+style heatmap
+visibility full
+maxItems 10
+priority 79
+html heatmap
+
+track lowcov_081
+parent lowHeatmap
+shortLabel 081 C72h-d3
+longLabel Batch2 C72h-d3; 200-bp native heatmap of log1p(mean per-base depth); MAPQ>=30/baseQ>=20
+type bigBed 12 +
+bigDataUrl heatmap/heatmap_081_C72h-d3.bb
+style heatmap
+visibility full
+maxItems 10
+priority 81
+html heatmap
+
+track lowcov_087
+parent lowHeatmap
+shortLabel 087 SB12h-d1
+longLabel Batch2 SB12h-d1; 200-bp native heatmap of log1p(mean per-base depth); MAPQ>=30/baseQ>=20
+type bigBed 12 +
+bigDataUrl heatmap/heatmap_087_SB12h-d1.bb
+style heatmap
+visibility full
+maxItems 10
+priority 87
+html heatmap
+
+track lowcov_089
+parent lowHeatmap
+shortLabel 089 SB12h-d3
+longLabel Batch2 SB12h-d3; 200-bp native heatmap of log1p(mean per-base depth); MAPQ>=30/baseQ>=20
+type bigBed 12 +
+bigDataUrl heatmap/heatmap_089_SB12h-d3.bb
+style heatmap
+visibility full
+maxItems 10
+priority 89
+html heatmap
+
+track lowcov_096
+parent lowHeatmap
+shortLabel 096 SB24h-d2
+longLabel Batch2 SB24h-d2; 200-bp native heatmap of log1p(mean per-base depth); MAPQ>=30/baseQ>=20
+type bigBed 12 +
+bigDataUrl heatmap/heatmap_096_SB24h-d2.bb
+style heatmap
+visibility full
+maxItems 10
+priority 96
+html heatmap
+
+track lowcov_097
+parent lowHeatmap
+shortLabel 097 SB24h-d3
+longLabel Batch2 SB24h-d3; 200-bp native heatmap of log1p(mean per-base depth); MAPQ>=30/baseQ>=20
+type bigBed 12 +
+bigDataUrl heatmap/heatmap_097_SB24h-d3.bb
+style heatmap
+visibility full
+maxItems 10
+priority 97
+html heatmap
+
+track lowcov_099
+parent lowHeatmap
+shortLabel 099 SB24h-g1
+longLabel Batch2 SB24h-g1; 200-bp native heatmap of log1p(mean per-base depth); MAPQ>=30/baseQ>=20
+type bigBed 12 +
+bigDataUrl heatmap/heatmap_099_SB24h-g1.bb
+style heatmap
+visibility full
+maxItems 10
+priority 99
+html heatmap
+
+track lowcov_100
+parent lowHeatmap
+shortLabel 100 SB24h-g2
+longLabel Batch2 SB24h-g2; 200-bp native heatmap of log1p(mean per-base depth); MAPQ>=30/baseQ>=20
+type bigBed 12 +
+bigDataUrl heatmap/heatmap_100_SB24h-g2.bb
+style heatmap
+visibility full
+maxItems 10
+priority 100
+html heatmap
+
+track lowcov_103
+parent lowHeatmap
+shortLabel 103 SB48h-d1
+longLabel Batch2 SB48h-d1; 200-bp native heatmap of log1p(mean per-base depth); MAPQ>=30/baseQ>=20
+type bigBed 12 +
+bigDataUrl heatmap/heatmap_103_SB48h-d1.bb
+style heatmap
+visibility full
+maxItems 10
+priority 103
+html heatmap
+
+track lowcov_105
+parent lowHeatmap
+shortLabel 105 SB48h-d3
+longLabel Batch2 SB48h-d3; 200-bp native heatmap of log1p(mean per-base depth); MAPQ>=30/baseQ>=20
+type bigBed 12 +
+bigDataUrl heatmap/heatmap_105_SB48h-d3.bb
+style heatmap
+visibility full
+maxItems 10
+priority 105
+html heatmap
+
+track lowcov_106
+parent lowHeatmap
+shortLabel 106 SB48h-d4
+longLabel Batch2 SB48h-d4; 200-bp native heatmap of log1p(mean per-base depth); MAPQ>=30/baseQ>=20
+type bigBed 12 +
+bigDataUrl heatmap/heatmap_106_SB48h-d4.bb
+style heatmap
+visibility full
+maxItems 10
+priority 106
+html heatmap
+
+track lowcov_108
+parent lowHeatmap
+shortLabel 108 SB48h-g2
+longLabel Batch2 SB48h-g2; 200-bp native heatmap of log1p(mean per-base depth); MAPQ>=30/baseQ>=20
+type bigBed 12 +
+bigDataUrl heatmap/heatmap_108_SB48h-g2.bb
+style heatmap
+visibility full
+maxItems 10
+priority 108
+html heatmap
+
+track lowcov_111
+parent lowHeatmap
+shortLabel 111 SB6h-d1
+longLabel Batch2 SB6h-d1; 200-bp native heatmap of log1p(mean per-base depth); MAPQ>=30/baseQ>=20
+type bigBed 12 +
+bigDataUrl heatmap/heatmap_111_SB6h-d1.bb
+style heatmap
+visibility full
+maxItems 10
+priority 111
+html heatmap
+
+track lowcov_112
+parent lowHeatmap
+shortLabel 112 SB6h-d2
+longLabel Batch2 SB6h-d2; 200-bp native heatmap of log1p(mean per-base depth); MAPQ>=30/baseQ>=20
+type bigBed 12 +
+bigDataUrl heatmap/heatmap_112_SB6h-d2.bb
+style heatmap
+visibility full
+maxItems 10
+priority 112
+html heatmap
+
+track lowcov_115
+parent lowHeatmap
+shortLabel 115 SB6h-g1
+longLabel Batch2 SB6h-g1; 200-bp native heatmap of log1p(mean per-base depth); MAPQ>=30/baseQ>=20
+type bigBed 12 +
+bigDataUrl heatmap/heatmap_115_SB6h-g1.bb
+style heatmap
+visibility full
+maxItems 10
+priority 115
+html heatmap
+
+track lowcov_116
+parent lowHeatmap
+shortLabel 116 SB6h-g2
+longLabel Batch2 SB6h-g2; 200-bp native heatmap of log1p(mean per-base depth); MAPQ>=30/baseQ>=20
+type bigBed 12 +
+bigDataUrl heatmap/heatmap_116_SB6h-g2.bb
+style heatmap
+visibility full
+maxItems 10
+priority 116
+html heatmap
+
+track lowcov_119
+parent lowHeatmap
+shortLabel 119 SB72h-d1
+longLabel Batch2 SB72h-d1; 200-bp native heatmap of log1p(mean per-base depth); MAPQ>=30/baseQ>=20
+type bigBed 12 +
+bigDataUrl heatmap/heatmap_119_SB72h-d1.bb
+style heatmap
+visibility full
+maxItems 10
+priority 119
+html heatmap
+
+track lowcov_121
+parent lowHeatmap
+shortLabel 121 SB72h-d3
+longLabel Batch2 SB72h-d3; 200-bp native heatmap of log1p(mean per-base depth); MAPQ>=30/baseQ>=20
+type bigBed 12 +
+bigDataUrl heatmap/heatmap_121_SB72h-d3.bb
+style heatmap
+visibility full
+maxItems 10
+priority 121
+html heatmap
+
+track lowcov_124
+parent lowHeatmap
+shortLabel 124 SB72h-g2
+longLabel Batch2 SB72h-g2; 200-bp native heatmap of log1p(mean per-base depth); MAPQ>=30/baseQ>=20
+type bigBed 12 +
+bigDataUrl heatmap/heatmap_124_SB72h-g2.bb
+style heatmap
+visibility full
+maxItems 10
+priority 124
+html heatmap
+
+track lowcov_127
+parent lowHeatmap
+shortLabel 127 VAR12h-d1
+longLabel Batch2 VAR12h-d1; 200-bp native heatmap of log1p(mean per-base depth); MAPQ>=30/baseQ>=20
+type bigBed 12 +
+bigDataUrl heatmap/heatmap_127_VAR12h-d1.bb
+style heatmap
+visibility full
+maxItems 10
+priority 127
+html heatmap
+
+track lowcov_129
+parent lowHeatmap
+shortLabel 129 VAR12h-d3
+longLabel Batch2 VAR12h-d3; 200-bp native heatmap of log1p(mean per-base depth); MAPQ>=30/baseQ>=20
+type bigBed 12 +
+bigDataUrl heatmap/heatmap_129_VAR12h-d3.bb
+style heatmap
+visibility full
+maxItems 10
+priority 129
+html heatmap
+
+track lowcov_131
+parent lowHeatmap
+shortLabel 131 VAR12h-g1
+longLabel Batch2 VAR12h-g1; 200-bp native heatmap of log1p(mean per-base depth); MAPQ>=30/baseQ>=20
+type bigBed 12 +
+bigDataUrl heatmap/heatmap_131_VAR12h-g1.bb
+style heatmap
+visibility full
+maxItems 10
+priority 131
+html heatmap
+
+track lowcov_132
+parent lowHeatmap
+shortLabel 132 VAR12h-g2
+longLabel Batch2 VAR12h-g2; 200-bp native heatmap of log1p(mean per-base depth); MAPQ>=30/baseQ>=20
+type bigBed 12 +
+bigDataUrl heatmap/heatmap_132_VAR12h-g2.bb
+style heatmap
+visibility full
+maxItems 10
+priority 132
+html heatmap
+
+track lowcov_133
+parent lowHeatmap
+shortLabel 133 VAR12h-g3
+longLabel Batch2 VAR12h-g3; 200-bp native heatmap of log1p(mean per-base depth); MAPQ>=30/baseQ>=20
+type bigBed 12 +
+bigDataUrl heatmap/heatmap_133_VAR12h-g3.bb
+style heatmap
+visibility full
+maxItems 10
+priority 133
+html heatmap
+
+track lowcov_135
+parent lowHeatmap
+shortLabel 135 VAR24h-d1
+longLabel Batch2 VAR24h-d1; 200-bp native heatmap of log1p(mean per-base depth); MAPQ>=30/baseQ>=20
+type bigBed 12 +
+bigDataUrl heatmap/heatmap_135_VAR24h-d1.bb
+style heatmap
+visibility full
+maxItems 10
+priority 135
+html heatmap
+
+track lowcov_136
+parent lowHeatmap
+shortLabel 136 VAR24h-d2
+longLabel Batch2 VAR24h-d2; 200-bp native heatmap of log1p(mean per-base depth); MAPQ>=30/baseQ>=20
+type bigBed 12 +
+bigDataUrl heatmap/heatmap_136_VAR24h-d2.bb
+style heatmap
+visibility full
+maxItems 10
+priority 136
+html heatmap
+
+track lowcov_137
+parent lowHeatmap
+shortLabel 137 VAR24h-d3
+longLabel Batch2 VAR24h-d3; 200-bp native heatmap of log1p(mean per-base depth); MAPQ>=30/baseQ>=20
+type bigBed 12 +
+bigDataUrl heatmap/heatmap_137_VAR24h-d3.bb
+style heatmap
+visibility full
+maxItems 10
+priority 137
+html heatmap
+
+track lowcov_139
+parent lowHeatmap
+shortLabel 139 VAR24h-g1
+longLabel Batch2 VAR24h-g1; 200-bp native heatmap of log1p(mean per-base depth); MAPQ>=30/baseQ>=20
+type bigBed 12 +
+bigDataUrl heatmap/heatmap_139_VAR24h-g1.bb
+style heatmap
+visibility full
+maxItems 10
+priority 139
+html heatmap
+
+track lowcov_140
+parent lowHeatmap
+shortLabel 140 VAR24h-g2
+longLabel Batch2 VAR24h-g2; 200-bp native heatmap of log1p(mean per-base depth); MAPQ>=30/baseQ>=20
+type bigBed 12 +
+bigDataUrl heatmap/heatmap_140_VAR24h-g2.bb
+style heatmap
+visibility full
+maxItems 10
+priority 140
+html heatmap
+
+track lowcov_141
+parent lowHeatmap
+shortLabel 141 VAR24h-g3
+longLabel Batch2 VAR24h-g3; 200-bp native heatmap of log1p(mean per-base depth); MAPQ>=30/baseQ>=20
+type bigBed 12 +
+bigDataUrl heatmap/heatmap_141_VAR24h-g3.bb
+style heatmap
+visibility full
+maxItems 10
+priority 141
+html heatmap
+
+track lowcov_142
+parent lowHeatmap
+shortLabel 142 VAR24h-g4
+longLabel Batch2 VAR24h-g4; 200-bp native heatmap of log1p(mean per-base depth); MAPQ>=30/baseQ>=20
+type bigBed 12 +
+bigDataUrl heatmap/heatmap_142_VAR24h-g4.bb
+style heatmap
+visibility full
+maxItems 10
+priority 142
+html heatmap
+
+track lowcov_144
+parent lowHeatmap
+shortLabel 144 VAR48h-d2
+longLabel Batch2 VAR48h-d2; 200-bp native heatmap of log1p(mean per-base depth); MAPQ>=30/baseQ>=20
+type bigBed 12 +
+bigDataUrl heatmap/heatmap_144_VAR48h-d2.bb
+style heatmap
+visibility full
+maxItems 10
+priority 144
+html heatmap
+
+track lowcov_145
+parent lowHeatmap
+shortLabel 145 VAR48h-d3
+longLabel Batch2 VAR48h-d3; 200-bp native heatmap of log1p(mean per-base depth); MAPQ>=30/baseQ>=20
+type bigBed 12 +
+bigDataUrl heatmap/heatmap_145_VAR48h-d3.bb
+style heatmap
+visibility full
+maxItems 10
+priority 145
+html heatmap
+
+track lowcov_146
+parent lowHeatmap
+shortLabel 146 VAR48h-d4
+longLabel Batch2 VAR48h-d4; 200-bp native heatmap of log1p(mean per-base depth); MAPQ>=30/baseQ>=20
+type bigBed 12 +
+bigDataUrl heatmap/heatmap_146_VAR48h-d4.bb
+style heatmap
+visibility full
+maxItems 10
+priority 146
+html heatmap
+
+track lowcov_148
+parent lowHeatmap
+shortLabel 148 VAR48h-g2
+longLabel Batch2 VAR48h-g2; 200-bp native heatmap of log1p(mean per-base depth); MAPQ>=30/baseQ>=20
+type bigBed 12 +
+bigDataUrl heatmap/heatmap_148_VAR48h-g2.bb
+style heatmap
+visibility full
+maxItems 10
+priority 148
+html heatmap
+
+track lowcov_149
+parent lowHeatmap
+shortLabel 149 VAR48h-g3
+longLabel Batch2 VAR48h-g3; 200-bp native heatmap of log1p(mean per-base depth); MAPQ>=30/baseQ>=20
+type bigBed 12 +
+bigDataUrl heatmap/heatmap_149_VAR48h-g3.bb
+style heatmap
+visibility full
+maxItems 10
+priority 149
+html heatmap
+
+track lowcov_150
+parent lowHeatmap
+shortLabel 150 VAR48h-g4
+longLabel Batch2 VAR48h-g4; 200-bp native heatmap of log1p(mean per-base depth); MAPQ>=30/baseQ>=20
+type bigBed 12 +
+bigDataUrl heatmap/heatmap_150_VAR48h-g4.bb
+style heatmap
+visibility full
+maxItems 10
+priority 150
+html heatmap
+
+track lowcov_151
+parent lowHeatmap
+shortLabel 151 VAR6h-d1
+longLabel Batch2 VAR6h-d1; 200-bp native heatmap of log1p(mean per-base depth); MAPQ>=30/baseQ>=20
+type bigBed 12 +
+bigDataUrl heatmap/heatmap_151_VAR6h-d1.bb
+style heatmap
+visibility full
+maxItems 10
+priority 151
+html heatmap
+
+track lowcov_153
+parent lowHeatmap
+shortLabel 153 VAR6h-d3
+longLabel Batch2 VAR6h-d3; 200-bp native heatmap of log1p(mean per-base depth); MAPQ>=30/baseQ>=20
+type bigBed 12 +
+bigDataUrl heatmap/heatmap_153_VAR6h-d3.bb
+style heatmap
+visibility full
+maxItems 10
+priority 153
+html heatmap
+
+track lowcov_154
+parent lowHeatmap
+shortLabel 154 VAR6h-d4
+longLabel Batch2 VAR6h-d4; 200-bp native heatmap of log1p(mean per-base depth); MAPQ>=30/baseQ>=20
+type bigBed 12 +
+bigDataUrl heatmap/heatmap_154_VAR6h-d4.bb
+style heatmap
+visibility full
+maxItems 10
+priority 154
+html heatmap
+
+track lowcov_157
+parent lowHeatmap
+shortLabel 157 VAR6h-g3
+longLabel Batch2 VAR6h-g3; 200-bp native heatmap of log1p(mean per-base depth); MAPQ>=30/baseQ>=20
+type bigBed 12 +
+bigDataUrl heatmap/heatmap_157_VAR6h-g3.bb
+style heatmap
+visibility full
+maxItems 10
+priority 157
+html heatmap
+
+track lowcov_158
+parent lowHeatmap
+shortLabel 158 VAR6h-g4
+longLabel Batch2 VAR6h-g4; 200-bp native heatmap of log1p(mean per-base depth); MAPQ>=30/baseQ>=20
+type bigBed 12 +
+bigDataUrl heatmap/heatmap_158_VAR6h-g4.bb
+style heatmap
+visibility full
+maxItems 10
+priority 158
+html heatmap
+
+track lowcov_159
+parent lowHeatmap
+shortLabel 159 VAR72h-d1
+longLabel Batch2 VAR72h-d1; 200-bp native heatmap of log1p(mean per-base depth); MAPQ>=30/baseQ>=20
+type bigBed 12 +
+bigDataUrl heatmap/heatmap_159_VAR72h-d1.bb
+style heatmap
+visibility full
+maxItems 10
+priority 159
+html heatmap
+
+track lowcov_161
+parent lowHeatmap
+shortLabel 161 VAR72h-d3
+longLabel Batch2 VAR72h-d3; 200-bp native heatmap of log1p(mean per-base depth); MAPQ>=30/baseQ>=20
+type bigBed 12 +
+bigDataUrl heatmap/heatmap_161_VAR72h-d3.bb
+style heatmap
+visibility full
+maxItems 10
+priority 161
+html heatmap
+
+track lowcov_162
+parent lowHeatmap
+shortLabel 162 VAR72h-d4
+longLabel Batch2 VAR72h-d4; 200-bp native heatmap of log1p(mean per-base depth); MAPQ>=30/baseQ>=20
+type bigBed 12 +
+bigDataUrl heatmap/heatmap_162_VAR72h-d4.bb
+style heatmap
+visibility full
+maxItems 10
+priority 162
+html heatmap
+
+track lowcov_163
+parent lowHeatmap
+shortLabel 163 VAR72h-g1
+longLabel Batch2 VAR72h-g1; 200-bp native heatmap of log1p(mean per-base depth); MAPQ>=30/baseQ>=20
+type bigBed 12 +
+bigDataUrl heatmap/heatmap_163_VAR72h-g1.bb
+style heatmap
+visibility full
+maxItems 10
+priority 163
+html heatmap
+
+track lowcov_164
+parent lowHeatmap
+shortLabel 164 VAR72h-g2
+longLabel Batch2 VAR72h-g2; 200-bp native heatmap of log1p(mean per-base depth); MAPQ>=30/baseQ>=20
+type bigBed 12 +
+bigDataUrl heatmap/heatmap_164_VAR72h-g2.bb
+style heatmap
+visibility full
+maxItems 10
+priority 164
+html heatmap
+
+track lowcov_165
+parent lowHeatmap
+shortLabel 165 VAR72h-g3
+longLabel Batch2 VAR72h-g3; 200-bp native heatmap of log1p(mean per-base depth); MAPQ>=30/baseQ>=20
+type bigBed 12 +
+bigDataUrl heatmap/heatmap_165_VAR72h-g3.bb
+style heatmap
+visibility full
+maxItems 10
+priority 165
+html heatmap
+
+track lowcov_166
+parent lowHeatmap
+shortLabel 166 VAR72h-g4
+longLabel Batch2 VAR72h-g4; 200-bp native heatmap of log1p(mean per-base depth); MAPQ>=30/baseQ>=20
+type bigBed 12 +
+bigDataUrl heatmap/heatmap_166_VAR72h-g4.bb
+style heatmap
+visibility full
+maxItems 10
+priority 166
 html heatmap
 
 track binaryPresence
