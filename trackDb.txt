@@ -58,7 +58,7 @@ html candidates
 track highSignal
 superTrack on show
 shortLabel High-signal coverage
-Ten representative high-signal samples (five per batch), true per-base viral alignment depth; samtools depth -aa -Q 30 -q 20
+longLabel Ten representative high-signal samples (five per batch), true per-base viral alignment depth; samtools depth -aa -Q 30 -q 20
 priority 2
 html hub.html
 
